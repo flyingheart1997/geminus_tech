@@ -1,0 +1,158 @@
+# 🚀 Email Setup Quick Reference
+
+## 30-Second Setup
+
+```bash
+# 1. Create .env.local
+cat > .env.local << EOF
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASSWORD=your-app-password
+EOF
+
+# 2. Restart server
+npm run dev
+
+# 3. Test at http://localhost:3000/company
+```
+
+## Get Gmail App Password
+
+1. Go to: https://myaccount.google.com/apppasswords
+2. Select "Mail" → Your device
+3. Copy 16-char password
+4. Paste into `.env.local`
+
+## API Endpoint
+
+**URL:** `POST /api/contact`
+
+**Request:**
+```json
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "message": "I would like to know more about your services"
+}
+```
+
+**Success Response (200):**
+```json
+{
+  "success": true,
+  "message": "Your inquiry has been sent successfully..."
+}
+```
+
+**Error Response (400):**
+```json
+{
+  "error": "Invalid email format"
+}
+```
+
+## Validation Rules
+
+- ✅ Name: Required, non-empty
+- ✅ Email: Required, valid format (user@domain.com)
+- ✅ Message: Required, min 10 characters
+
+## Emails Sent
+
+**To:** `info@geminustech.com`
+- Subject: "New Contact Form Submission from [Name]"
+- Shows: name, email, full message
+
+**To:** Visitor's email
+- Subject: "We received your inquiry - Geminus Tech"
+- Includes: confirmation, company contact info
+
+## Files Created
+
+```
+app/api/contact/route.ts      # API handler
+lib/email.ts                   # Email service
+.env.local                     # (You create this)
+EMAIL_SETUP.md                # Full guide
+setup-email.sh               # Auto setup
+```
+
+## Deployment
+
+### Vercel
+Settings → Environment Variables → Add EMAIL_USER, EMAIL_PASSWORD
+
+### Netlify
+Site settings → Build & deploy → Environment → Add vars
+
+### Others
+Follow your host's env var documentation
+
+## Testing
+
+**Local:**
+```bash
+npm run dev
+# Visit http://localhost:3000/company → Contact section
+```
+
+**API Direct:**
+```bash
+curl -X POST http://localhost:3000/api/contact \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Test","email":"t@test.com","message":"This is a test"}'
+```
+
+## Troubleshooting Checklist
+
+- [ ] .env.local file exists
+- [ ] EMAIL_USER and EMAIL_PASSWORD are set
+- [ ] Using Gmail App Password (not regular password)
+- [ ] 2-Step Verification enabled on Gmail
+- [ ] Dev server restarted after .env changes
+- [ ] Check browser console for errors
+- [ ] Check terminal for server errors
+- [ ] Check spam folder for emails
+
+## Common Issues
+
+| Issue | Solution |
+|-------|----------|
+| "Not configured" | Restart dev server after adding .env.local |
+| "Failed to send" | Verify Gmail credentials, check 2FA |
+| No emails | Check spam folder, verify recipient email |
+| Slow submission | Email service latency (normal 2-5 sec) |
+
+## Alternative Email Services
+
+```typescript
+// SendGrid (recommended for production)
+import sgMail from '@sendgrid/mail';
+sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
+
+// Mailgun
+import mailgun from 'mailgun.js';
+
+// AWS SES
+import AWS from 'aws-sdk';
+
+// Custom SMTP
+nodemailer.createTransport({ host, port, auth })
+```
+
+## Security Notes
+
+⚠️ **DO NOT:**
+- Commit `.env.local` to git (already in .gitignore)
+- Use regular Gmail password (use App Password)
+- Share credentials publicly
+- Log sensitive data
+
+✅ **DO:**
+- Use App Passwords for Gmail
+- Enable 2-Step Verification
+- Use HTTPS in production
+- Keep env vars in hosting platform
+
+---
+
+**Need help?** See `EMAIL_SETUP.md` for detailed instructions.

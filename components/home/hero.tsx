@@ -1,0 +1,104 @@
+
+'use client'
+
+import Image from 'next/image'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { ContainerProvider } from '../providers/container-provider'
+import { cn } from '@/lib/utils'
+
+export const Hero = () => {
+    const [textIndex, setTextIndex] = useState(0);
+
+    const texts = [
+        { text: 'Kubernetes', animate: '-translate-x-24 translate-y-[50px] md:-translate-x-36 md:translate-y-[100px]' },
+        { text: 'Docker', animate: '-translate-x-24 translate-y-[50px] md:-translate-x-36 md:translate-y-[100px]' },
+        { text: 'DevOps', animate: 'translate-x-0 -translate-y-24 md:translate-x-0 md:-translate-y-40' }
+    ];
+
+    const annimation = texts[textIndex];
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTextIndex(prev => (prev + 1) % texts.length);
+        }, 3000);
+        return () => clearInterval(interval);
+    }, [])
+
+
+    return (
+        <section id='hero' className="h-screen w-screen bg-grid-large-white/[0.15] relative flex items-center justify-center">
+            <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black md:[mask-image:radial-gradient(ellipse_at_right,transparent_0%,black)] [mask-image:radial-gradient(ellipse_at_center,transparent_0%,black)]" />
+            <ContainerProvider>
+                <div className="relative z-20 flex flex-col lg:flex-row items-center justify-center h-full md:justify-between gap-[clamp(30px,3vw,40px)]">
+                    <motion.div
+                        initial={{ opacity: 0, x: -200 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                            duration: 1,
+                            ease: "easeInOut",
+                            delay: 0.3,
+                        }}
+                        className='w-[clamp(50%, 30vw, 100%)] flex flex-col sm:gap-8 gap-2 items-center lg:items-start'>
+                        <span className="text-[clamp(24px,5vw,50px)] leading-[1.2] lg:text-start text-center font-bold font-sans text-white">
+                            Realize Your Vision With Our Expertise
+                        </span>
+
+                        <span className='text-[clamp(14px,4vw,30px)] font-medium opacity-80 text-white'>Your Product Partner</span>
+                        <Link className="bg-[rgba(12,1,1,1)] shadow-[-1px_0px_1px_1px_rgb(255,255,255,0.4)] 
+                        md:flex hidden w-auto rounded-full text-white px-[30px] py-[10px] gap-1 text-[clamp(14px,3vw,18px)] font-light"
+                            href="#">
+                            Explore Services
+                        </Link>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{
+                            duration: 1,
+                            ease: "easeInOut",
+                            delay: 0.3,
+                        }}
+                        className='lg:w-[45%] flex relative flex-col items-center lg:items-end justify-center gap-4'>
+                        <div className='h-[clamp(200px,25vw,350px)] w-[clamp(200px,25vw,350px)] border-[0.5px] border-white/40 rounded-full relative flex items-center justify-center' >
+                            <div className='h-[90%] w-[90%] bg-white rounded-full absolute blur-3xl opacity-20' />
+                            <span className='w-[50%] text-center text-[clamp(12px,2vw,24px)] font-normal text-[rgba(221,255,249,1)] uppercase'>
+                                Product Engineering
+                            </span>
+                            <div className="absolute inset-0 animate-orbit">
+                                <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2">
+                                    <div className={cn(
+                                        "h-[clamp(80px,10vw,150px)] w-[clamp(80px,10vw,150px)] border-[0.5px] border-white/40 rounded-full relative",
+                                        "bg-transparent flex items-center justify-center animate-orbit"
+                                    )}>
+                                        <div className='h-[70%] w-[70%] bg-white rounded-full blur-2xl opacity-70 absolute' />
+                                        <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2">
+                                            <div className="w-3 h-3 rounded-full bg-white shadow-md" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <span className='special__text text-[clamp(48px,10vw,128px)] font-bold opacity-40 '>
+                            {annimation.text}
+                        </span>
+                    </motion.div>
+
+                    <Link className="bg-[rgba(12,1,1,1)] shadow-[-1px_0px_1px_1px_rgb(255,255,255,0.4)] 
+                        md:hidden flex w-auto rounded-full text-white px-[30px] py-[10px] gap-1 text-[clamp(14px,3vw,20px)] font-light"
+                        href="#">
+                        Explore Services
+                    </Link>
+                </div>
+            </ContainerProvider>
+            <div className='h-[clamp(90px,10vw,140px)] hidden sm:flex w-[clamp(24px,4.5vw,28px)] rounded-full bg-[#018FD1] absolute bottom-24 -left-[14px]' />
+            <div className='h-[clamp(90px,10vw,140px)] hidden sm:flex w-[clamp(24px,4.5vw,28px)] rounded-full bg-[#FBAA07] absolute top-24 -right-[14px]' />
+            <div className='flex absolute h-[clamp(36px,4.5vw,48px)] cursor-pointer animate-bounce w-[clamp(24px,4.5vw,28px)] z-50 bottom-5 border-[rgba(221,221,221,0.40)] rounded-full border-2'>
+                <Image src='/arrow_down.svg' alt='arrow down' width={100} height={100} />
+            </div>
+        </section>
+    )
+}
+
