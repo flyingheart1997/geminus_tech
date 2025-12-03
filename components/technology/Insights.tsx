@@ -31,7 +31,7 @@ export const Insights: React.FC<OverviewCardProps> = ({ contents }) => {
                                 delay: 0.2 * index,
 
                             }}
-                            className='flex flex-col' key={index}>
+                            className='flex flex-col gap-2' key={index}>
                             {content.title &&
                                 <span className='text-[clamp(12px,2vw,18px)] text-white font-semibold text-wrap'>
                                     {content.title}

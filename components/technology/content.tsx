@@ -13,6 +13,8 @@ import { Overview } from '../common/overview'
 
 type Technology = {
     name: string;
+    image: string;
+    has_content: boolean;
     content: {
         Overview: {
             title?: string;
@@ -49,7 +51,7 @@ export const Content = () => {
 
     const section_ref = useRef<HTMLDivElement>(null);
 
-    const [technology, set_technology] = React.useState<Technology>(Technologys[0])
+    const [technology, set_technology] = React.useState<Technology>(Technologys[0] as Technology)
     const [section, set_section] = React.useState<{
         name: string;
         scroll: boolean
@@ -107,8 +109,9 @@ export const Content = () => {
                     delay: 0.3,
 
                 }}
-                className="md:flex hidden h-full w-[400px] cursor-pointer -left-10 top-[10%] absolute">
-                <Image src="/bg_industry.svg" alt="arrow down" height={100} width={100} className="object-contain w-full opacity-60 -rotate-90 z-0" />
+                className="md:flex hidden h-full w-[400px] items-center text-start cursor-pointer -left-10 top-[10%] absolute">
+                <Image src={technology?.image} alt={technology?.name} height={100} width={100} className="object-contain w-full opacity-60 z-0" />
+                <span className='text-5xl text-[#D9EEEA] opacity-20 font-bold absolute left-12'>{technology.name}</span>
             </motion.div>
             <ContainerProvider className='p-0 pb-10'>
                 <section className='flex flex-col w-full h-full gap-5' ref={section_ref}>

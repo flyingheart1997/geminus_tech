@@ -10,6 +10,7 @@ import { Separator } from '@radix-ui/react-separator';
 import { ContainerProvider } from '../providers/container-provider';
 import { SocialIcons } from './social-icons';
 import { SectionLabel } from './section-label';
+import Image from 'next/image';
 
 
 
@@ -89,17 +90,20 @@ export const Contact = ({ showForm = false }: { showForm?: boolean }) => {
             {showForm && <SectionLabel label='Contact' placement='left' />}
             <ContainerProvider>
                 <div className='mb-28 transition-all duration-500'>
-                    <Card className='w-full overflow-hidden h-auto flex bg-gradient-to-bl from-[rgb(41,41,41)] to-black shadow-sm p-[1px]'>
+                    <Card className='w-full overflow-hidden h-auto flex border border-[rgba(255,255,255,0.05)] p-[1px]'>
                         <div className='h-full w-full rounded-lg relative flex md:flex-row flex-col items-center justify-center'>
-                            <div className="absolute h-full w-full inset-0 [mask-image:radial-gradient(ellipse_at_center,white/5,transparent)] ">
-                                <GridPattern />
+                            <div className='h-[50%] w-[50%] absolute rounded-lg top-[-5px] left-[-5px]'>
+                                <Image src='/contact_bg.svg' alt='contact-bg' width={100} height={100} className=' w-full h-full object-cover bg-center' />
+                            </div>
+                            <div className='h-[50%] w-[50%] absolute rounded-lg bottom-[-5px] right-[-5px] rotate-180'>
+                                <Image src='/contact_bg.svg' alt='contact-bg' width={100} height={100} className=' w-full h-full object-cover bg-center' />
                             </div>
                             {showForm &&
                                 <div className='z-10 sm:p-10 p-5 flex flex-col gap-10 h-full w-full'>
                                     <div className='flex flex-col gap-4 w-full max-w-[clamp(420px,70%,1024px)] items-center md:items-start text-center md:text-start'>
                                         <span className='flex md:hidden text-[clamp(18px,3vw,32px)] text-white font-bold underline underline-offset-[12px] decoration-black decoration-1'>Ready to Transform Your Digital Presence?</span>
                                         <span className='hidden md:flex text-[clamp(18px,3vw,32px)] text-white font-bold underline underline-offset-[12px] decoration-black decoration-1'>Get in Touch</span>
-                                        <p className='w-full text-[clamp(12px,2vw,20px)] text-white/80 !leading-tight'>Ready to take the next step in transforming your business with Geminus Tech? We're here to help! Reach out to us today to discuss your specific needs and discover how our expertise can empower your organization.</p>
+                                        <p className='w-full text-[clamp(12px,1vw,18px)] text-white/80 !leading-tight'>Ready to take the next step in transforming your business with Geminus Tech? We're here to help! Reach out to us today to discuss your specific needs and discover how our expertise can empower your organization.</p>
                                         <Button className="bg-[rgba(12,1,1,1)] text-white shadow-[-1px_0px_1px_1px_rgb(255,255,255,0.4)] md:hidden mt-5 flex items-center justify-center rounded-full px-[clamp(12px,2vw,20px)] py-[clamp(6px,1.6vw,10px)] gap-2 text-sm font-medium"
                                             onClick={() => { }}
                                         >
@@ -118,10 +122,6 @@ export const Contact = ({ showForm = false }: { showForm?: boolean }) => {
                                                         className='w-full h-full object-cover object-center border-0'
                                                         allowFullScreen
                                                     />
-                                                </div>
-                                                <div className='flex flex-col gap-1'>
-                                                    <span className='text-white/80 text-xl'>Address</span>
-                                                    <p className='text-white/50 text-[clamp(14px,2.2vw,16px)] leading-tight max-w-lg'>Neels Square, Sangavi Keshri Rd, Sindh Society, Ward No. 8, Sadhu Vasvani Nagar, Aundh, Pune, Maharashtra 411007</p>
                                                 </div>
                                             </div>
                                             <div className='flex flex-col gap-10 col-span-1 lg:items-start items-end'>
@@ -168,26 +168,6 @@ export const Contact = ({ showForm = false }: { showForm?: boolean }) => {
                                                         </Button>
                                                         {submitStatus === 'success' && <span className='text-green-400 text-xs'>Message sent successfully!</span>}
                                                         {submitStatus === 'error' && <span className='text-red-500 text-xs'>Failed to send message. Please try again.</span>}
-                                                    </div>
-                                                </div>
-                                                <div className='flex w-full items-center justify-between'>
-                                                    <div className='flex flex-col gap-1'>
-                                                        <span className='text-white/80 text-xl'>Phone</span>
-                                                        <p className='text-white/50 text-lg leading-tight'>+91 878709098</p>
-                                                    </div>
-                                                    <Separator orientation="vertical" />
-                                                    <div className='flex flex-col gap-1'>
-                                                        <span className='text-white/80 text-xl'>Email</span>
-                                                        <p className='text-white/50 text-lg leading-tight max-w-lg'>info@geminustech.com</p>
-                                                    </div>
-                                                    <Separator orientation="vertical" />
-                                                    <div className='flex flex-col gap-2'>
-                                                        <span className='text-white/80 text-xl'>Social</span>
-                                                        <div className='flex items-center gap-5'>
-                                                            {SocialIcons.map(social => (
-                                                                <Link key={social.name} href={social.url} passHref>{social.icon}</Link>
-                                                            ))}
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

@@ -147,112 +147,56 @@ export const BlogsDetails = [
 
 export const LatestNews = [
   {
-    title: "𝗙𝘂𝘁𝘂𝗿𝗲 𝗧𝗲𝗰𝗵𝗻𝗼𝗹𝗼𝗴𝗶𝗲𝘀 𝗦𝘂𝗺𝗺𝗶𝘁 𝟮𝟬𝟮𝟱 - 𝗦𝗽𝗮𝗰𝗲 𝗖𝗼𝗻𝗳𝗲𝗿𝗲𝗻𝗰e",
-    description: "We’re honored to have been part of the conference held on September 23, 2025, at the India International Centre, New Delhi.",
+    title: "Sep-Oct’ 25 Edition Company newsletter",
+    description: "Key Updates : SONATUS INDIA: DRIVING IMPACT Expanding Expertise& Ownership.The Sonatus India team is strengthening its QA and Devel.",
     image: "/news-latter.svg",
-    // icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
-    createdAt: "2 weeks ago",
-    viewes: "53K views",
+    createdAt: "Nov 08 • 1 month ago",
   },
   {
-    title: "𝗙𝘂𝘁𝘂𝗿𝗲 𝗧𝗲𝗰𝗵𝗻𝗼𝗹𝗼𝗴𝗶𝗲𝘀 𝗦𝘂𝗺𝗺𝗶𝘁 𝟮𝟬𝟮𝟱 - 𝗦𝗽𝗮𝗰𝗲 𝗖𝗼𝗻𝗳𝗲𝗿𝗲𝗻𝗰e",
-    description: "We’re honored to have been part of the conference held on September 23, 2025, at the India International Centre, New Delhi.",
+    title: "Sep-Oct’ 25 Edition Company newsletter",
+    description: "Key Updates : SONATUS INDIA: DRIVING IMPACT Expanding Expertise& Ownership.The Sonatus India team is strengthening its QA and Devel.",
     image: "/news-latter.svg",
-    // icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
-    createdAt: "2 weeks ago",
-    viewes: "53K views",
+    createdAt: "Nov 08 • 1 month ago",
   },
   {
-    title: "𝗙𝘂𝘁𝘂𝗿𝗲 𝗧𝗲𝗰𝗵𝗻𝗼𝗹𝗼𝗴𝗶𝗲𝘀 𝗦𝘂𝗺𝗺𝗶𝘁 𝟮𝟬𝟮𝟱 - 𝗦𝗽𝗮𝗰𝗲 𝗖𝗼𝗻𝗳𝗲𝗿𝗲𝗻𝗰e",
-    description: "We’re honored to have been part of the conference held on September 23, 2025, at the India International Centre, New Delhi.",
+    title: "August 2025 Company newsletter",
+    description: "Key updates : XSight Labs –QuickHighlights Spotlight: XSight Labs E1 – Next- Gen InfrastructureProcessorThe XSight Labs.",
     image: "/news-latter.svg",
-    // icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
-    createdAt: "2 weeks ago",
-    viewes: "53K views",
+    createdAt: "Sept 09 • 3 months ago",
   },
 ];
 
 export const TeamsDetails = [
   {
-    name: "John Doe",
-    image: "/engineer_1.png",
-    designation: "Lead UI/UX Designer",
+    name: "Deepak Tawri",
+    image: "/teams/deepak_tawri.svg",
+    designation: "Co - Founder",
   },
   {
-    name: "Jane Smith",
-    image: "/engineer_2.png",
-    designation: "Senior UI/UX Designer",
+    name: "Rahul Soman",
+    image: "/teams/rahul_soman.svg",
+    designation: "Co - Founder",
   },
   {
-    name: "Alex Brown",
-    image: "/engineer_1.png",
-    designation: "UI Designer",
+    name: "Abhishek Mukherjee ",
+    image: "/teams/abhishek_mukherjee.svg",
+    designation: "Consulting Architect",
   },
   {
-    name: "Emily Johnson",
-    image: "/engineer.png",
-    designation: "UX Researcher",
+    name: "Omkar Kulkarni",
+    image: "/teams/omkar_kulkarni.svg",
+    designation: "Director of Engineering ",
   },
   {
-    name: "David Wilson",
-    image: "/engineer_2.png",
-    designation: "UI/UX Designer",
+    name: "Nitesh Gothe",
+    image: "/teams/nitesh_gothe.svg",
+    designation: "Lead Product Designer",
   },
   {
-    name: "Sarah Lee",
-    image: "/engineer.png",
-    designation: "UX Writer",
-  },
-  {
-    name: "Michael Davis",
-    image: "/engineer_1.png",
-    designation: "Interaction Designer",
-  },
-  {
-    name: "Olivia Taylor",
-    image: "/engineer_2.png",
-    designation: "UI/UX Designer",
-  },
-  {
-    name: "John Doe",
-    image: "/engineer_1.png",
-    designation: "Lead UI/UX Designer",
-  },
-  {
-    name: "Jane Smith",
-    image: "/engineer_2.png",
-    designation: "Senior UI/UX Designer",
-  },
-  {
-    name: "Alex Brown",
-    image: "/engineer_1.png",
-    designation: "UI Designer",
-  },
-  {
-    name: "Emily Johnson",
-    image: "/engineer.png",
-    designation: "UX Researcher",
-  },
-  {
-    name: "David Wilson",
-    image: "/engineer_2.png",
-    designation: "UI/UX Designer",
-  },
-  {
-    name: "Sarah Lee",
-    image: "/engineer.png",
-    designation: "UX Writer",
-  },
-  {
-    name: "Michael Davis",
-    image: "/engineer_1.png",
-    designation: "Interaction Designer",
-  },
-  {
-    name: "Olivia Taylor",
-    image: "/engineer_2.png",
-    designation: "UI/UX Designer",
-  },
+    name: "Purushottam Thakar",
+    image: "/teams/purushottam_thakar.svg",
+    designation: "Senior director engineering and operations",
+  }
 ];
 
 /////////////////////////////////////////////////////////// TECHNOLOGY SECTION ///////////////////////////////////////////////////////////
@@ -260,6 +204,7 @@ export const TeamsDetails = [
 export const Technologys = [
   {
     name: "Cloud Engineering",
+    image: '/technology/cloud_engineering.svg',
     has_content: true,
     content: {
       Overview: [
@@ -267,7 +212,7 @@ export const Technologys = [
           title: "",
           description:
             "In today's rapidly evolving technological landscape, cloud computing is the backbone of innovation and scalability. Our cloud engineering services are designed to help businesses seamlessly transition to the cloud, optimize their infrastructure, and harness the full potential of cloud technologies.",
-          image: "/overview.svg",
+          image: "/overview1.svg",
         },
       ],
       Landscape: [
@@ -280,7 +225,7 @@ export const Technologys = [
                 "We specialize in designing robust, scalable, and secure cloud architectures tailored to your business needs. Our solutions are built to ensure high availability, disaster recovery, and seamless integration with your existing systems.",
             },
           ],
-          icon: "/cloud_arc.svg",
+          icon: "/cloud.svg",
         },
         {
           category: "Cloud Migration",
@@ -302,7 +247,7 @@ export const Technologys = [
                 "Embrace automation with our Infrastructure as Code services. We use tools like Terraform, CloudFormation, and Ansible to manage your infrastructure, enabling consistent, repeatable deployments that reduce human error and accelerate development cycles.",
             },
           ],
-          icon: "/security.svg",
+          icon: "/cloud.svg",
         },
         {
           category: "Cloud-Native Application Development",
@@ -324,7 +269,7 @@ export const Technologys = [
                 "Security is at the core of our cloud engineering services. We implement best practices in cloud security, ensuring your data is protected and your environment is compliant with industry standards and regulations.",
             },
           ],
-          icon: "/security.svg",
+          icon: "/cloud.svg",
         },
         {
           category: "Cost Optimization",
@@ -356,14 +301,14 @@ export const Technologys = [
             "Improve storage efficiency and utilization by abstracting physical storage across multiple devices into a single, manageable resource.",
         },
         {
-          title: "Storage Virtualization",
+          title: "Infrastructure as a Service (IaaS):",
           description:
-            "Improve storage efficiency and utilization by abstracting physical storage across multiple devices into a single, manageable resource.",
+            "We deliver scalable IaaS solutions, providing on-demand servers, storage, and networking to deploy and manage applications efficiently while reducing infrastructure costs.",
         },
         {
-          title: "Storage Virtualization",
+          title: "Containerization",
           description:
-            "Improve storage efficiency and utilization by abstracting physical storage across multiple devices into a single, manageable resource.",
+            "We use containerization to package applications with all dependencies, ensuring consistency, faster deployment, and easy scaling.",
         },
       ],
       "Case Study": [
@@ -396,6 +341,7 @@ export const Technologys = [
   },
   {
     name: "SOC Embedded",
+    image: "/technology/soc_embedded.svg",
     has_content: true,
     content: {
       Overview: [
@@ -547,6 +493,7 @@ export const Technologys = [
   },
   {
     name: "Storage Virtualization",
+    image: '/technology/stroage_virtualization.svg',
     has_content: false,
     content: {
       Overview: [],
@@ -557,6 +504,7 @@ export const Technologys = [
   },
   {
     name: "Software Define Networking",
+    image: '/technology/software_define_networking.svg',
     has_content: false,
     content: {
       Overview: [],
@@ -567,91 +515,127 @@ export const Technologys = [
   },
   {
     name: "Software Define Vehicle",
+    image: '/technology/software_define_vehicle.svg',
     has_content: true,
     content: {
       Overview: [
         {
           title: "Comprehensive Networking Solutions for Modern Environments",
           description:
-            "We provide end-to-end networking solutions designed to meet the demands of today’s high-performance, secure, and scalable networks. Our expertise spans traditional networking, advanced SDN technologies, and specialized SoC solutions, enabling us to deliver innovative and reliable networking infrastructure for a variety of applications.",
-          image: "/overview.svg",
+            "Here, we enable OEMs to transition from hardware-centric vehicles to fully Software-Defined Vehicles (SDVs). We help engineering teams build intelligent, upgradeable, and data-driven automotive ecosystems where features evolve continuously through software. Our expertise ensures that the automakers unlock agility, scalability, and differentiated user experiences long after the vehicle leaves the factory.",
+          image: "/overview1.svg",
         },
       ],
       Landscape: [
         {
-          category: "How Hardware and Software go hand in hand in vehicles",
+          category: "Hardware + Software Synergy",
           details: [
             {
-              name: " Advanced Driver Assistance Systems (ADAS)",
+              name: "",
               description:
-                "Offloading NVMe over TCP to SoCs enhances the performance of storage networks, enabling high-speed data transfers over standard IP networks while reducing the load on the host CPU.",
-            },
-            {
-              name: "Powertrain and Battery Management (for EVs)",
-              description:
-                "Offloading iSCSI improves the efficiency of block-level storage data transfers over IP networks, ensuring low latency and high throughput.",
-            },
-            {
-              name: "Vehicle-to-Everything (V2X) Communication",
-              description:
-                "Our SoCs support FCoE offloading, enabling Fibre Channel protocols to operate over Ethernet networks, simplifying network infrastructure while maintaining high performance.",
-            },
-            {
-              name: "Infotainment Systems",
-              description:
-                "Our SoCs support FCoE offloading, enabling Fibre Channel protocols to operate over Ethernet networks, simplifying network infrastructure while maintaining high performance.",
-            },
-            {
-              name: " Connectivity and IoT Integration",
-              description:
-                "Our SoCs support FCoE offloading, enabling Fibre Channel protocols to operate over Ethernet networks, simplifying network infrastructure while maintaining high performance.",
-            },
-            {
-              name: "Control Systems",
-              description:
-                "Our SoCs support FCoE offloading, enabling Fibre Channel protocols to operate over Ethernet networks, simplifying network infrastructure while maintaining high performance.",
-            },
-            {
-              name: "Cybersecurity",
-              description:
-                "Our SoCs support FCoE offloading, enabling Fibre Channel protocols to operate over Ethernet networks, simplifying network infrastructure while maintaining high performance.",
+                "We build systems where embedded hardware and intelligent software work as one Our teams bridge the gap between mechanical components and advanced software capabilities ensuring seamless data flow, safety, and performance.",
             },
           ],
-          icon: "/cloud_arc.svg",
+          icon: "/advance_hardware.svg",
         },
         {
-          category: "SDV and Importance of Data",
+          category: "Advanced Driver Assistance Systems (ADAS)",
           details: [
             {
-              name: " Automatic Software upgrades",
+              name: "",
               description:
-                "Offloading TCP to SoCs reduces the complexity of networking tasks, freeing up CPU resources and improving overall network performance.",
+                "We work on systems that interpret complex sensor data and improve features like automated braking, lane assistance, and collision avoidance, helping OEMs improve safety confidence.",
             }
           ],
-          icon: "/network.svg",
+          icon: "/advance_hardware.svg",
         },
         {
-          category: "Data analytics in SDV",
+          category: "Powertrain & Battery Management (EVs)",
           details: [
             {
-              name: " Automatic Software upgrades",
+              name: "",
               description:
-                "By offloading IPSec, we enhance secure communication across IP networks, providing high-performance encryption and authentication with minimal impact on system resources.",
+                "Our software expertise supports EV customers in optimizing battery health, driving range, charging cycles, and predictive diagnostics.",
             }
           ],
-          icon: "/security.svg",
+          icon: "/advance_hardware.svg",
+        },
+        {
+          category: "Vehicle-to-Everything (V2X)",
+          details: [
+            {
+              name: "",
+              description:
+                "We help integrate communication systems that allow vehicles to connect with other cars, infrastructure, and cloud platforms, enabling safer and more predictable mobility.",
+            }
+          ],
+          icon: "/advance_hardware.svg",
+        },
+        {
+          category: "Infotainment Systems",
+          details: [
+            {
+              name: "",
+              description:
+                "We support modern infotainment development—apps, UI flows, OTA updates, voice interfaces, and real-time navigation powered by modular architectures.",
+            }
+          ],
+          icon: "/advance_hardware.svg",
+        },
+        {
+          category: "Connectivity & IoT",
+          details: [
+            {
+              name: "",
+              description:
+                "We design and test connected vehicle systems that enable real-time vehicle telemetry, predictive maintenance, and personalized cabin experiences.",
+            }
+          ],
+          icon: "/advance_hardware.svg",
+        },
+        {
+          category: "Control Systems & Safety",
+          details: [
+            {
+              name: "",
+              description:
+                "Our teams help OEMs build reliable braking, steering, and stability systems, combining hardware precision with intelligent software logic.",
+            }
+          ],
+          icon: "/advance_hardware.svg",
+        },
+        {
+          category: "Cybersecurity",
+          details: [
+            {
+              name: "",
+              description:
+                "We bring deep experience in securing automotive software stacks—threat detection, encryption, secure OTA, and compliance with ISO 21434.",
+            }
+          ],
+          icon: "/advance_hardware.svg",
         }
       ],
       Insights: [
         {
-          title: "Quality Assurance",
+          title: "Storage Virtualization",
           description:
-            "Manual and Automation QA services which we provide. Testing Data Pipelines, Policy driven policies, Dashboards and Visualisations. UI based automation.",
+            "We help OEMs use data as the core engine of intelligent vehicle behavior. From decision-making models to personalized experiences, we ensure data pipelines are accurate, governed, and production-ready.",
         },
         {
-          title: "Compliance and governance",
+          title: "Upgrades and Updates",
           description:
-            "Helping in certifications like ASPICE, FuSa (Functional Safety), Cybersecurity -  ISO 27001, ISO 21434. This also includes improving software delivery processes.",
+            "We enable OTA processes that deliver new features and performance improvements without dealership visits. We help manufacturers build adaptive systems that change based on driving patterns, environment, and user preferences.",
+        },
+        {
+          title: "Data analytics",
+          description:
+            "We turn vehicle data into actionable intelligence for engineering, product, and business teams. Our solutions help OEMs monitor fleet health, optimize performance, improve ML models, and deliver smarter features.",
+        },
+        {
+          title: "User Experience  and Decision-Making Algorithms",
+          description:
+            "Our focus is on creating tailored in-car experiences driven by real-time user data. For that, our teams in develop and validate algorithms that power ADAS and autonomous functions.",
         },
       ],
       "Case Study": [
@@ -684,6 +668,7 @@ export const Technologys = [
   },
   {
     name: "Software Define Satellite",
+    image: '/technology/software_define_satellite.svg',
     has_content: false,
     content: {
       Overview: [],

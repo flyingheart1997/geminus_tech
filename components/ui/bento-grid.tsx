@@ -83,7 +83,7 @@ export const BentoGridItem = ({
                     <div className="flex gap-2 items-center text-neutral-500">
                         {icon}
                         <div className="flex items-center text-sm">
-                            {`${viewes} • ${createdAt}`}
+                            {viewes ? `${viewes} • ${createdAt}` : createdAt}
                         </div>
                     </div>
                     <div className="font-sans font-bold text-neutral-200 mb-2 mt-2">

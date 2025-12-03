@@ -26,9 +26,9 @@ export const Teams = () => {
                         className='flex flex-col sm:gap-[clamp(20px,6vw,60px)] gap-10 z-10'
                     >
                         <div className='w-full flex items-end justify-between'>
-                            <div className='flex flex-col gap-4 w-full md:w-[60%] lg:w-[40%]'>
+                            <div className='flex flex-col gap-4 w-full md:w-[60%]'>
                                 <span className='text-[clamp(18px,3vw,32px)] text-black font-bold underline underline-offset-[12px] decoration-black decoration-1'>Meet Our Team</span>
-                                <p className='w-full text-[clamp(12px,2vw,20px)] text-black/80'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidi</p>
+                                <p className='w-full text-[clamp(12px,2vw,20px)] text-black/80'>We’re a collective of innovators, problem-solvers, and doers driven by curiosity and a constant wish to build better.</p>
                             </div>
                             <Link className="border border-[#379888] hidden md:flex text-black items-center justify-center rounded-full px-[clamp(12px,2vw,20px)] py-[clamp(6px,1.6vw,10px)] gap-2 text-sm font-medium"
                                 href="#">

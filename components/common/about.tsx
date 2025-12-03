@@ -2,14 +2,45 @@
 
 import { AboutDetails } from '@/lib/utils'
 import Image from 'next/image'
-import React, { useState } from 'react'
-import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { motion, Variants } from 'framer-motion'
 import { ContainerProvider } from '../providers/container-provider'
 import { SectionLabel } from './section-label'
+
+const variants: Variants = {
+    initial: (direction: string) => ({
+        opacity: 0,
+        x: direction === "right" ? 80 : -80,
+        scale: 0.95,
+    }),
+
+    animate: {
+        opacity: 1,
+        x: 0,
+        scale: 1,
+        transition: {
+            duration: 0.4,
+            ease: [0.16, 1, 0.3, 1], // fixed here
+        },
+    },
+
+    exit: (direction: string) => ({
+        opacity: 0,
+        x: direction === "right" ? -80 : 80,
+        scale: 0.95,
+        transition: {
+            duration: 0.3,
+            ease: [0.4, 0, 1, 1], // fixed here
+        },
+    }),
+};
+
+
 
 export const About = () => {
 
     const [show_details, set_show_details] = useState<number>(0)
+    const [direction, setDirection] = useState<'left' | 'right' | null>(null);
 
     const get_details = (index: number, arrow: string) => {
         if ((index >= AboutDetails.length - 1) && arrow === 'right') {
@@ -40,19 +71,26 @@ export const About = () => {
                         <Image src='/about_bg.svg' alt='about' fill className='object-cover absolute h-full w-full' />
                         {AboutDetails.map((item, index) => (
                             <motion.div
-                                initial={{ opacity: 0, transform: 'scale(0)' }}
-                                whileInView={{ opacity: 1, transform: 'scale(1)' }}
-                                viewport={{ once: true, amount: 0.2 }}
-                                transition={{
-                                    duration: 0.4,
-                                    ease: "easeOut",
-                                    delay: 0.2,
-                                }}
-                                key={index} className={`w-full h-auto flex-1 ${show_details === index ? 'flex' : 'hidden'} transition-all duration-500 ease-in-out`}>
+                                key={index}
+                                custom={direction}
+                                variants={variants}
+                                initial="initial"
+                                animate="animate"
+                                exit="exit"
+                                className={`w-full h-auto flex-1 ${show_details === index ? 'flex' : 'hidden'} transition-all duration-500 ease-in-out`}>
                                 <div className='flex flex-col gap-[clamp(6px,1.6vw,12px)] w-full relative'>
                                     <div className='flex gap-[clamp(6px,1.6vw,10px)] items-center absolute right-0 top-0'>
-                                        <Image src='/left_arrow.svg' alt='left_arrow' width={20} height={20} className='cursor-pointer w-auto h-auto object-contain' onClick={() => get_details(index, 'left')} />
-                                        <Image src='/right_arrow.svg' alt='left_arrow' width={20} height={20} className='cursor-pointer w-auto h-auto object-contain' onClick={() => get_details(index, 'right')} />
+                                        <Image src='/left_arrow.svg' alt='left_arrow' width={20} height={20} className='cursor-pointer w-auto h-auto object-contain'
+                                            onClick={() => {
+                                                setDirection('left');
+                                                get_details(index, 'left')
+                                            }} />
+                                        <Image src='/right_arrow.svg' alt='left_arrow' width={20} height={20} className='cursor-pointer w-auto h-auto object-contain'
+                                            onClick={() => {
+                                                setDirection('right');
+                                                get_details(index, 'right')
+                                            }}
+                                        />
                                     </div>
                                     <span className='text-[clamp(20px,3vw,32px)] font-bold text-black/60'>{`${item.id}-${AboutDetails[AboutDetails.length - 1].id}`}</span>
                                     <p className='text-[clamp(16px,2.5vw,20px)] font-normal line-clamp-4 text-black/60 w-[clamp(220px,100%,90%)]'>{item.description}</p>

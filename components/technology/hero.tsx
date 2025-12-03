@@ -28,7 +28,7 @@ export const Hero = () => {
                     delay: 0.3,
 
                 }}
-                className="w-[90%] md:w-[80%] lg:w-[70%] flex flex-col gap-[clamp(28px,6vw,60px)] sm:px-[clamp(8px,2vw,10px)] md:px-[clamp(16px,4vw,40px)] lg:px-[clamp(24px,6vw,100px)] h-auto z-10 absolute md:left-0 top-40 md:top-auto"
+                className="w-[90%] md:w-[80%] lg:w-[65%] flex flex-col gap-[clamp(28px,6vw,60px)] sm:px-[clamp(8px,2vw,10px)] md:px-[clamp(16px,4vw,40px)] lg:px-[clamp(24px,6vw,100px)] h-auto z-10 absolute md:left-0 top-40 md:top-auto"
             >
                 <div className='flex flex-col sm:gap-4 gap-2'>
                     <div className='flex gap-2 items-center w-full md:justify-start justify-center'>

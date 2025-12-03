@@ -7,24 +7,23 @@ import { ImageContainer } from '../common/Image-container'
 import { WorksDetails } from './utils'
 import { WorkerCard } from '../common/worker-card'
 import { ContainerProvider } from '../providers/container-provider'
+import { SectionLabel } from '../common/section-label'
 
 export const Workes = () => {
     return (
         <section id='worker'>
-            <div className='w-100 flex px-6'>
-                <span className='special__text sm:flex hidden text-[clamp(20px,4vw,56px)] font-bold opacity-20'>Expertise</span>
-            </div>
+            <SectionLabel label='Expertise' placement='left' />
             <ContainerProvider>
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
                     transition={{ duration: 0.5, ease: 'easeOut' }}
-                    className='flex h-auto w-full py-16 relative flex-col gap-24 items-center justify-center'
+                    className='flex h-auto w-full relative flex-col gap-24 items-center justify-center'
                 >
                     <div className='flex flex-col text-center items-center justify-center gap-[20px]'>
                         <span className='text-[clamp(18px,3vw,32px)] font-bold underline underline-offset-[12px] decoration-white/20 decoration-1 text-white'>Dimensions We Work in</span>
-                        <p className='text-[clamp(12px,2vw,20px)] text-white opacity-80 max-w-[1024px]'>A software company develops, designs, creates, tests, and maintains software applications. These applications can range from simple mobile apps to complex enterprise systems.</p>
+                        <p className='text-[clamp(12px,2vw,20px)] text-white opacity-80 max-w-[800px]'>We operate at the confluence of strategy, innovation, and technical rigor. Guiding ideas from conception to realization with clarity and foresight.</p>
                     </div>
                     <div className='w-full grid grid-cols-1 md:grid-cols-2 gap-10'>
                         {WorksDetails.map(work => (
@@ -49,7 +48,7 @@ export const Workes = () => {
                     <WorkerCard>
                         <div className='h-auto shadow-sm w-full flex flex-col lg:flex-row gap-10 z-20'>
                             <div className='h-[200px] w-full lg:w-[450px] rounded-md overflow-hidden bg-white/50'>
-                                <Image src="/blog_1.svg" alt="blog svg" height={100} width={100} className="object-cover w-full h-full opacity-60" />
+                                <Image src="/work.svg" alt="blog svg" height={100} width={100} className="object-cover w-full h-full opacity-60" />
                             </div>
                             <div className='flex-1 lg:max-w-[500px] w-full flex flex-col gap-6 lg:items-start items-center text-center lg:text-start z-10'>
                                 <div className='flex flex-col gap-2 lg:items-start items-center w-full justify-center text-center lg:text-start'>

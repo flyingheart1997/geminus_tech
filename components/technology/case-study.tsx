@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Button } from '../ui/button';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 interface CaseStudyProps {
     contents: {
@@ -78,7 +79,9 @@ export const CaseStudy: React.FC<CaseStudyProps> = ({ contents }) => {
                                             <span className='text-[16px] text-[rgba(0,0,0,0.80)] font-semibold'>{detail}:</span>
                                             <ul className={cn(detail === 'Expertise Used' ? 'flex gap-3 flex-wrap' : 'list-disc pl-5')}>
                                                 {current.details[detail as keyof typeof current.details].map((detail, index) => (
-                                                    <li className='text-[14px] text-[rgba(0,0,0,0.80)] text-wrap font-normal' key={index}>{detail}</li>
+                                                    <li className='text-[14px] text-[rgba(0,0,0,0.80)] text-wrap font-normal gap-2' key={index}>
+                                                        {detail}
+                                                    </li>
                                                 ))}
                                             </ul>
                                         </div>

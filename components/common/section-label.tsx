@@ -6,7 +6,7 @@ export const SectionLabel = ({ label, placement, className }: { label: string; p
         <div className={cn(`w-full flex px-4`, className,
             placement === 'left' ? 'justify-start' : 'justify-end'
         )}>
-            <span className='special__text sm:flex hidden text-[clamp(20px,4vw,56px)] font-bold opacity-25'>{label}</span>
+            <span className='special__text sm:flex hidden text-[clamp(20px,4vw,56px)] font-bold opacity-20'>{label}</span>
         </div>
     )
 }
