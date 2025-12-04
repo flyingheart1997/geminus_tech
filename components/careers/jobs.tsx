@@ -1,11 +1,11 @@
 'use client'
 
 import React from 'react'
-import { CareerDetails } from '@/lib/utils'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { CareerDetails } from './utils'
 
 export const Jobs = () => {
     const contents = CareerDetails.jobs
@@ -39,8 +39,11 @@ export const Jobs = () => {
                                         <span className='text-[clamp(12px,1vw,16px)] truncate opacity-80'>{job.experience} | {job.location}</span>
                                     </div>
                                 </div>
-                                <div className='w-full flex items-center justify-end px-4'>
-                                    <Link href={''} className='text-[clamp(12px,1vw,16px)] text-white bg-[#379888] px-3 py-1 rounded-md'>Apply</Link>
+                                <div className='w-full flex items-center justify-end'>
+                                    <div className='h-auto rounded-full backdrop-blur-[15px] backdrop-brightness-[100%] 
+                            bg-gradient-to-r from-[rgb(79,170,155)] to-[rgb(9,79,67)] p-[1px]'>
+                                        <Link href={''} className="bg-[rgba(12,1,1,1)] text-white rounded-full text-sm flex px-5 py-1 gap-2 text-[clamp(12px,2.2vw,16px)] font-light">Apply</Link>
+                                    </div>
                                 </div>
                             </motion.div>
                         )

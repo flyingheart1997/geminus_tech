@@ -14,7 +14,7 @@ export const NewsLatters = () => {
                 <div className='flex flex-col sm:gap-[60px] gap-10'>
                     <div className='w-full flex items-end justify-between'>
                         <div className='flex flex-col gap-4 w-full md:w-[55%]'>
-                            <span className='text-[clamp(18px,3vw,32px)] w-full font-bold underline underline-offset-[12px] decoration-white/20 decoration-1 text-white'>Latest at </span>
+                            <span className='text-[clamp(18px,3vw,32px)] w-full font-bold underline underline-offset-[12px] decoration-white/20 decoration-1 text-white font-chakra'>Latest at </span>
                             <p className='w-full text-[clamp(12px,2vw,20px)] text-white/80'>Each event here tells a story of progress of teams pushing boundaries, delivering excellence, and creating lasting impact along the way.</p>
                         </div>
                         <div className="hidden md:flex items-center justify-center

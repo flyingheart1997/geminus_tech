@@ -69,6 +69,10 @@ const config: Config = {
         full: "9999px",
         large: "12px",
       },
+      fontFamily: {
+        chakra: ["var(--font-chakra)"],
+        ubuntu: ["var(--font-ubuntu)"],
+      },
     },
   },
   plugins: [

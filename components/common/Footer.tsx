@@ -24,7 +24,7 @@ export default function Footer() {
                             />
                         </Button>
                     </div>
-                    <div className="flex flex-col md:flex-row gap-10 md:items-end">
+                    <div className="flex flex-col md:flex-row md:gap-10 gap-5 md:items-end">
                         <div className="flex flex-wrap gap-2 text-sm text-white/70 flex-1">
                             <div className="flex items-center gap-2">
                                 <a href="/" className="hover:text-white">Home</a>
@@ -43,7 +43,7 @@ export default function Footer() {
                                 <span>/</span>
                             </div>
                             <div className="flex items-center gap-2">
-                                <a href="/about" className="hover:text-white">About us</a>
+                                <a href="/company" className="hover:text-white">About us</a>
                                 <span>/</span>
                             </div>
                             <div className="flex items-center gap-2">
@@ -57,7 +57,7 @@ export default function Footer() {
                             </div>
 
                         </div>
-                        <div className="flex flex-col gap-4 flex-1">
+                        <div className="flex md:flex-col justify-between pt-10 md:pt-0 gap-4 flex-1">
                             <div>
                                 <p className="text-xs text-white/40">PHONE</p>
                                 <p className="mt-1 text-sm">+91878709098</p>
@@ -79,7 +79,7 @@ export default function Footer() {
                                 Pune Maharashtra, India-411007
                             </p>
                         </div>
-                        <p className="text-white/50 text-xs flex-1 text-center flex justify-center">
+                        <p className="text-white/50 text-xs flex-1 text-center flex justify-end">
                             © 2025 - All rights reserved
                         </p>
                     </div>

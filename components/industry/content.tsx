@@ -2,15 +2,17 @@
 
 import React, { useEffect, useRef } from 'react'
 import { ContainerProvider } from '../providers/container-provider'
-import { cn, Industrys } from '@/lib/utils'
+import { cn } from '@/lib/utils'
 import { Button } from '../ui/button'
 import { Overview } from '../common/overview'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Specification } from './Specification'
+import { Industrys } from './utils'
 
 type Industry = {
     name: string;
+    image: string;
     has_content: boolean;
     content: {
         Overview: {
@@ -33,7 +35,7 @@ export const Content = () => {
 
     const section_ref = useRef<HTMLDivElement>(null);
 
-    const [industry, set_industry] = React.useState<Industry>(Industrys[2])
+    const [industry, set_industry] = React.useState<Industry>(Industrys[0])
     const [section, set_section] = React.useState<{
         name: string;
         scroll: boolean
@@ -91,8 +93,9 @@ export const Content = () => {
                     delay: 0.3,
 
                 }}
-                className="md:flex hidden h-full w-[clamp(200px,30vw,400px)] cursor-pointer -left-10 top-[10%] absolute">
-                <Image src="/bg_industry.svg" alt="arrow down" height={100} width={100} className="object-contain bg-transparent w-full opacity-60 -rotate-90 z-0" />
+                className="md:flex hidden h-full w-[400px] items-center text-start -left-10 top-[10%] absolute">
+                <Image src={industry?.image} alt={industry?.name} height={100} width={100} className="object-contain bg-transparent w-full opacity-60 z-0" />
+                <span className='text-5xl font-chakra text-[#D9EEEA] opacity-20 font-bold absolute left-12 '>{industry?.name}</span>
             </motion.div>
             <ContainerProvider className='p-0 pb-10'>
                 <section className='flex flex-col w-full h-screen gap-5' ref={section_ref}>
@@ -114,7 +117,7 @@ export const Content = () => {
                             </Button>
                         ))}
                     </div>
-                    <div className='flex max-h-[90vh]'>
+                    <div className='flex max-h-screen'>
                         <div className='w-[clamp(160px,20vw,200px)] h-[clamp(160px,20vw,200px)] flex-col hidden md:flex sticky top-20 z-[5] backdrop-blur shadow'>
                             {Object.keys(industry?.['content']).map(key => (
                                 <Button

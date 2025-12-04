@@ -17,12 +17,12 @@ export const Workes = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
+                    viewport={{ once: false, amount: 0.2 }}
                     transition={{ duration: 0.5, ease: 'easeOut' }}
                     className='flex h-auto w-full relative flex-col gap-24 items-center justify-center'
                 >
                     <div className='flex flex-col text-center items-center justify-center gap-[20px]'>
-                        <span className='text-[clamp(18px,3vw,32px)] font-bold underline underline-offset-[12px] decoration-white/20 decoration-1 text-white'>Dimensions We Work in</span>
+                        <span className='text-[clamp(18px,3vw,32px)] font-bold underline underline-offset-[12px] decoration-white/20 decoration-1 text-white font-chakra'>Dimensions We Work in</span>
                         <p className='text-[clamp(12px,2vw,20px)] text-white opacity-80 max-w-[800px]'>We operate at the confluence of strategy, innovation, and technical rigor. Guiding ideas from conception to realization with clarity and foresight.</p>
                     </div>
                     <div className='w-full grid grid-cols-1 md:grid-cols-2 gap-10'>
@@ -65,7 +65,7 @@ export const Workes = () => {
                             bg-gradient-to-r from-[rgb(79,170,155)] to-[rgb(9,79,67)] p-[1px]"
                                 >
                                     <Link className="bg-[rgba(12,1,1,1)] text-white rounded-full text-sm flex px-5 py-2 gap-2 text-[clamp(12px,2.2vw,16px)] font-light"
-                                        href="#">
+                                        href="https://in.linkedin.com/company/design-it-well" target='_blank'>
                                         Design it well
                                         <Image src="/link.svg" alt="link" width={14} height={14} className="w-auto h-auto" />
                                     </Link>

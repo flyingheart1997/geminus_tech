@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Button } from '../ui/button';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 interface CaseStudyProps {
     contents: {
@@ -36,7 +36,7 @@ export const CaseStudy: React.FC<CaseStudyProps> = ({ contents }) => {
             className='w-full flex-grow flex flex-col p-5 sm:p-10 bg-[rgba(255,255,255,0.06)]'>
             <div className='flex-col flex gap-8'>
                 <div className='flex w-full items-center justify-between'>
-                    <div className='text-[clamp(18px,3vw,30px)] text-white gap-1.5 flex sm:flex-row flex-col text-wrap font-bold'>
+                    <div className='text-[clamp(18px,3vw,30px)] text-white gap-1.5 flex sm:flex-row flex-col font-chakra text-wrap font-bold'>
                         <span className='sm:underline decoration-2 underline-offset-8'>
                             Solving Customer Problems
                         </span>
@@ -62,20 +62,37 @@ export const CaseStudy: React.FC<CaseStudyProps> = ({ contents }) => {
                 <div className='bg-white p-5 rounded-md'>
                     {current && (
                         <div className={'gap-6 flex flex-col'}>
-                            <div className='flex flex-col gap-2'>
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                viewport={{ once: false, amount: 0.2 }}
+                                transition={{
+                                    duration: 0.2,
+                                    ease: "easeInOut",
+                                }}
+                                className='flex flex-col gap-2'>
                                 {current.title &&
-                                    <span className='text-[clamp(16px,2.5vw,22px)] text-black font-bold text-wrap'>
+                                    <span className='text-[clamp(16px,2.5vw,22px)] text-black font-bold text-wrap font-chakra'>
                                         {current.title}
                                     </span>
                                 }
                                 <span className='text-black opacity-80 text-[clamp(14px,2vw,16px)] text-wrap font-light'>
                                     {current.description}
                                 </span>
-                            </div>
+                            </motion.div>
                             <div className='flex flex-col gap-5'>
-                                {Object.keys(current.details).map((detail) => {
+                                {Object.keys(current.details).map((detail, index) => {
                                     return (
-                                        <div className='flex flex-col gap-2' key={detail}>
+                                        <motion.div
+                                            initial={{ opacity: 0 }}
+                                            whileInView={{ opacity: 1 }}
+                                            viewport={{ once: false, amount: 0.2 }}
+                                            transition={{
+                                                duration: 0.2,
+                                                ease: "easeInOut",
+                                                delay: 0.2 * index,
+                                            }}
+                                            className='flex flex-col gap-2' key={detail}>
                                             <span className='text-[16px] text-[rgba(0,0,0,0.80)] font-semibold'>{detail}:</span>
                                             <ul className={cn(detail === 'Expertise Used' ? 'flex gap-3 flex-wrap' : 'list-disc pl-5')}>
                                                 {current.details[detail as keyof typeof current.details].map((detail, index) => (
@@ -84,7 +101,7 @@ export const CaseStudy: React.FC<CaseStudyProps> = ({ contents }) => {
                                                     </li>
                                                 ))}
                                             </ul>
-                                        </div>
+                                        </motion.div>
                                     )
                                 })}
                             </div>

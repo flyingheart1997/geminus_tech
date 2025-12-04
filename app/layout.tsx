@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import { Header } from "@/components/common/header";
 import Footer from "@/components/common/Footer";
+import { Chakra_Petch, Ubuntu } from "next/font/google";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const chakra = Chakra_Petch({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-chakra",
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+
+const ubuntu = Ubuntu({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
+  variable: "--font-ubuntu",
 });
 
 
@@ -31,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[rgb(2,1,3)]`}>
+      <body suppressHydrationWarning className={`${chakra.variable} ${ubuntu.variable} antialiased bg-[rgb(2,1,3)]`}>
         <Header />
         {children}
         <Footer />

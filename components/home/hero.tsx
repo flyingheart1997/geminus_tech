@@ -7,10 +7,12 @@ import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { ContainerProvider } from '../providers/container-provider'
 import { cn } from '@/lib/utils'
+import { Button } from '../ui/button'
+import useScrollNextSection from '@/hooks/useScrollNextSection'
 
 export const Hero = () => {
+    const { onScrollNext } = useScrollNextSection()
     const [textIndex, setTextIndex] = useState(0);
-
     const texts = [
         { text: 'Kubernetes' },
         { text: 'Docker' },
@@ -42,17 +44,17 @@ export const Hero = () => {
                         transition={{
                             duration: 1,
                             ease: "easeInOut",
-                            delay: 0.3,
+                            delay: 0.2,
                         }}
                         className='lg:w-[45%] flex flex-col sm:gap-8 gap-2 items-center lg:items-start'>
-                        <span className="text-[clamp(24px,5vw,50px)] leading-[1.2] lg:text-start text-center font-bold font-sans text-white">
+                        <span className="text-[clamp(24px,5vw,50px)] leading-[1.2] lg:text-start text-center font-bold font-chakra text-white">
                             Realize Your Vision With Our Expertise
                         </span>
 
                         <span className='text-[clamp(14px,4vw,30px)] font-medium opacity-80 text-white'>Your Product Partner</span>
-                        <Link className="bg-[rgba(12,1,1,1)] shadow-[-1px_0px_1px_1px_rgb(255,255,255,0.4)] 
-                        md:flex hidden w-auto rounded-full text-white px-[30px] py-[10px] gap-1 text-[clamp(14px,3vw,18px)] font-light"
-                            href="#">
+                        <Link className="bg-[rgba(12,1,1,1)] shadow-[-1px_0px_1px_1px_rgb(255,255,255,0.4)] cursor-pointer z-10
+                        md:flex hidden w-auto rounded-full font-chakra text-white px-[30px] py-[10px] gap-1 text-[clamp(14px,3vw,18px)] font-light"
+                            href="/services">
                             Explore Services
                         </Link>
                     </motion.div>
@@ -63,12 +65,12 @@ export const Hero = () => {
                         transition={{
                             duration: 1,
                             ease: "easeInOut",
-                            delay: 0.3,
+                            delay: 0.2,
                         }}
                         className='lg:absolute w-full right-0 flex relative flex-col items-center lg:items-end justify-center gap-4'>
                         <div className='h-[clamp(200px,25vw,350px)] w-[clamp(200px,25vw,350px)] border-[0.5px] border-[#329E91] rounded-full relative flex items-center justify-center' >
                             <div className='h-full w-full bg-[#8CDAD1] rounded-full absolute blur-3xl opacity-20' />
-                            <span className='w-[50%] text-center text-[clamp(12px,2vw,24px)] font-normal text-[rgba(221,255,249,1)] uppercase opacity-40'>
+                            <span className='w-[50%] text-center font-chakra text-[clamp(12px,2vw,24px)] font-normal text-[rgba(221,255,249,1)] uppercase opacity-40'>
                                 Product Engineering
                             </span>
                             <div className="absolute inset-0 animate-orbit">
@@ -90,18 +92,18 @@ export const Hero = () => {
                         </span>
                     </motion.div>
 
-                    <Link className="bg-[rgba(12,1,1,1)] shadow-[-1px_0px_1px_1px_rgb(255,255,255,0.4)] 
-                        md:hidden flex w-auto rounded-full text-white px-[30px] py-[10px] gap-1 text-[clamp(14px,3vw,20px)] font-light"
-                        href="#">
+                    <Link className="bg-[rgba(12,1,1,1)] shadow-[-1px_0px_1px_1px_rgb(255,255,255,0.4)] cursor-pointer
+                        md:hidden flex w-auto font-chakra rounded-full text-white px-[30px] py-[10px] gap-1 text-[clamp(14px,3vw,20px)] font-light"
+                        href="/services">
                         Explore Services
                     </Link>
                 </div>
             </ContainerProvider>
             <div className='h-[clamp(90px,10vw,140px)] hidden sm:flex w-[clamp(24px,4.5vw,28px)] rounded-full bg-[#018FD1] absolute bottom-24 -left-[14px]' />
             <div className='h-[clamp(90px,10vw,140px)] hidden sm:flex w-[clamp(24px,4.5vw,28px)] rounded-full bg-[#FBAA07] absolute top-24 -right-[14px]' />
-            <div className='flex absolute h-[clamp(36px,4.5vw,48px)] cursor-pointer animate-bounce w-[clamp(24px,4.5vw,28px)] z-50 bottom-5 border-[rgba(221,221,221,0.40)] rounded-full border-2'>
+            <Button onClick={onScrollNext} variant='ghost' className='flex p-0 hove:bg-transparent absolute h-[clamp(36px,4.5vw,48px)] cursor-pointer animate-bounce w-[clamp(24px,4.5vw,28px)] z-50 bottom-5 border-[rgba(221,221,221,0.40)] rounded-full border-2'>
                 <Image src='/arrow_down.svg' alt='arrow down' width={100} height={100} />
-            </div>
+            </Button>
         </section>
     )
 }

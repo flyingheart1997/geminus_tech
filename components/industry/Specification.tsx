@@ -21,10 +21,10 @@ export const Specification: React.FC<LandscapeCardProps> = ({ contents }) => {
         <section
             id='Specification'
             className='w-full flex-grow flex flex-col p-5 pb-0 sm:p-10 sm:pb-0'>
-            <span className='text-[clamp(18px,3vw,30px)] text-white underline decoration-2 underline-offset-8 font-bold'>
+            <span className='text-[clamp(18px,3vw,30px)] text-white underline decoration-2 underline-offset-8 font-chakra font-bold'>
                 Specification
             </span>
-            <div className='flex-col flex w-full mt-10 gap-5'>
+            <div className='flex-col flex w-full mt-10 gap-10'>
                 {contents.map((content, index) => {
                     const show__bg = index % 2 === 1 ? 'bg-[#F0F0F0]' : 'bg-rgba(0,0,0,0.8)';
                     const show__text = index % 2 === 1 ? 'text-black' : 'text-white';
@@ -32,7 +32,7 @@ export const Specification: React.FC<LandscapeCardProps> = ({ contents }) => {
                         <div key={index} className={cn('gap-5 flex-col p-5 flex w-full border shadow rounded-md', show__bg)}>
                             <div className='flex gap-3 items-center'>
                                 <div className='w-1.5 h-7 rounded-md bg-[#379888]' />
-                                <span className={cn('text-[clamp(16px,2.5vw,22px)] font-bold text-wrap', show__text)}>{content.category}</span>
+                                <span className={cn('text-[clamp(16px,2.5vw,22px)] font-bold text-wrap font-chakra', show__text)}>{content.category}</span>
                             </div>
                             <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
                                 {content.details.map((detail, index) => {
@@ -48,7 +48,7 @@ export const Specification: React.FC<LandscapeCardProps> = ({ contents }) => {
                                                 delay: 0.1 * index, // This creates the staggered effect
                                             }}
                                             className={cn('flex flex-col gap-1 shadow backdrop-blur p-2 rounded-md', full_space)} key={index}>
-                                            <span className={cn('text-[clamp(12px,2vw,18px)] font-semibold text-wrap', show__text)}>{detail.name}</span>
+                                            <span className={cn('text-[clamp(12px,2vw,18px)] font-semibold text-wrap font-chakra', show__text)}>{detail.name}</span>
                                             <span className={cn('text-[clamp(10px,1.6vw,14px)] text-wrap font-light opacity-80', show__text)}>{detail.description}</span>
                                         </motion.div>
                                     )

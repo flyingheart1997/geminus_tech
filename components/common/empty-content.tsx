@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 export const Emptycontent = () => {
     return (

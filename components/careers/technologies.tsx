@@ -1,9 +1,10 @@
 "use client"
 
 import React from 'react';
-import { CareerDetails, cn } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { CareerDetails } from './utils';
 
 export const Technologies = () => {
     const contents = CareerDetails.technologies

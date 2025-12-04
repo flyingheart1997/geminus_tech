@@ -1,8 +1,8 @@
 'use client'
 
-import React, { Fragment, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { ContainerProvider } from '../providers/container-provider'
-import { cn, Technologys } from '@/lib/utils'
+import { cn } from '@/lib/utils'
 import { Button } from '../ui/button'
 import { Landscape } from './landscape'
 import { Insights } from './Insights'
@@ -10,6 +10,7 @@ import { CaseStudy } from './case-study'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Overview } from '../common/overview'
+import { Technologys } from './utils'
 
 type Technology = {
     name: string;
@@ -109,9 +110,9 @@ export const Content = () => {
                     delay: 0.3,
 
                 }}
-                className="md:flex hidden h-full w-[400px] items-center text-start cursor-pointer -left-10 top-[10%] absolute">
+                className="md:flex hidden h-full w-[400px] items-center text-start -left-10 top-[10%] absolute">
                 <Image src={technology?.image} alt={technology?.name} height={100} width={100} className="object-contain w-full opacity-60 z-0" />
-                <span className='text-5xl text-[#D9EEEA] opacity-20 font-bold absolute left-12'>{technology.name}</span>
+                <span className='text-5xl text-[#D9EEEA] opacity-20 font-chakra font-bold absolute left-12'>{technology.name}</span>
             </motion.div>
             <ContainerProvider className='p-0 pb-10'>
                 <section className='flex flex-col w-full h-full gap-5' ref={section_ref}>
@@ -133,7 +134,7 @@ export const Content = () => {
                             </Button>
                         ))}
                     </div>
-                    <div className='flex max-h-[90vh]'>
+                    <div className='flex max-h-screen'>
                         <div className='w-[200px] h-[200px] flex-col hidden md:flex sticky top-20 z-[5] backdrop-blur shadow'>
                             {Object.keys(technology?.['content']).map(key => (
                                 <Button

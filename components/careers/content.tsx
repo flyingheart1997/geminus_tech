@@ -1,12 +1,13 @@
 'use client'
 
 import React, { useEffect, useRef } from 'react'
-import { CareerDetails, cn, } from '@/lib/utils'
+import { cn, } from '@/lib/utils'
 import { ContainerProvider } from '../providers/container-provider'
 import { Button } from '../ui/button'
 import { Activity } from './activity'
 import { Technologies } from './technologies'
 import { Jobs } from './jobs'
+import { CareerDetails } from './utils'
 
 export const Content = () => {
     const section_ref = useRef<HTMLDivElement>(null);
@@ -67,7 +68,7 @@ export const Content = () => {
         <div className='flex relative bg-[#020103]'>
             <ContainerProvider className='p-0 pb-10'>
                 <section className='flex flex-col w-full h-full gap-5' ref={section_ref}>
-                    <div className='flex max-h-[90vh]'>
+                    <div className='flex max-h-screen'>
                         <div className='w-[clamp(160px,20vw,200px)] h-[clamp(160px,20vw,200px)] flex-col hidden md:flex sticky top-20 z-[5] backdrop-blur shadow'>
                             {CareerDetails.sidebar_links.map((link) => {
                                 return (

@@ -16,7 +16,7 @@ export const Insights: React.FC<OverviewCardProps> = ({ contents }) => {
             id='Insights'
             className='w-full flex-grow flex flex-col p-5 pb-10 sm:p-10 sm:pb-20'>
             <div className='flex-col flex gap-6'>
-                <span className='text-[clamp(18px,3vw,30px)] text-white underline decoration-2 underline-offset-8 font-bold'>
+                <span className='text-[clamp(18px,3vw,30px)] text-white font-chakra underline decoration-2 underline-offset-8 font-bold'>
                     Insights
                 </span>
                 <div className='flex flex-col gap-6 border rounded-[20px] border-[#1F1F1F] shadow px-5 sm:px-10 py-5'>
@@ -24,16 +24,15 @@ export const Insights: React.FC<OverviewCardProps> = ({ contents }) => {
                         <motion.div
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
-                            viewport={{ once: true, amount: 0.2 }}
+                            viewport={{ once: false, amount: 0.2 }}
                             transition={{
                                 duration: 0.4,
                                 ease: "easeInOut",
-                                delay: 0.2 * index,
-
+                                delay: 0.2 * index || 0.2,
                             }}
                             className='flex flex-col gap-2' key={index}>
                             {content.title &&
-                                <span className='text-[clamp(12px,2vw,18px)] text-white font-semibold text-wrap'>
+                                <span className='text-[clamp(12px,2vw,18px)] text-white font-semibold text-wrap font-chakra'>
                                     {content.title}
                                 </span>
                             }

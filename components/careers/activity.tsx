@@ -1,146 +1,436 @@
+// 'use client'
+
+// import { cn } from '@/lib/utils'
+// import Image from 'next/image'
+// import { Button } from '../ui/button'
+// import { ArrowLeft, ArrowRight } from 'lucide-react'
+// import { useState } from 'react'
+// import { motion, AnimatePresence, Variants } from 'framer-motion'
+// import { CareerDetails } from './utils'
+
+// export const Activity = () => {
+//     const activity = CareerDetails['activity']
+
+//     const [selectedAcivity, setSelectedActivity] = useState(0)
+//     const [selectedComment, setSelectedComment] = useState(0)
+//     const [direction, setDirection] = useState(1)
+
+//     // ✅ Slide animation based on direction
+//     const slideVariants: Variants = {
+//         enter: (direction: number) => ({
+//             x: direction > 0 ? 200 : -200,
+//             opacity: 0,
+//         }),
+//         center: {
+//             x: 0,
+//             opacity: 1,
+//             transition: {
+//                 type: "spring",
+//                 stiffness: 300,
+//                 damping: 30,
+//             },
+//         },
+//         exit: (direction: number) => ({
+//             x: direction > 0 ? -200 : 200,
+//             opacity: 0,
+//             transition: {
+//                 type: "spring",
+//                 stiffness: 300,
+//                 damping: 30,
+//             },
+//         }),
+//     }
+
+
+//     return (
+//         <section id="activity" className="flex flex-col gap-20">
+
+//             {/* ✅ Top Overview */}
+//             <motion.div
+//                 id="overview"
+//                 initial={{ opacity: 0 }}
+//                 whileInView={{ opacity: 1 }}
+//                 viewport={{ once: false, amount: 0.2 }}
+//                 transition={{
+//                     type: "spring",
+//                     stiffness: 250,
+//                     damping: 25,
+//                 }}
+//                 className="w-full flex-grow flex flex-col p-5 sm:p-10 bg-white"
+//             >
+//                 <div className="flex-col flex gap-6">
+//                     <span className="text-[clamp(18px,3vw,30px)] text-black underline decoration-2 underline-offset-8 font-bold">
+//                         {activity.title}
+//                     </span>
+
+//                     <div className={cn('gap-10 grid grid-cols-1 lg:grid-cols-2 items-center')}>
+//                         <span className="text-black opacity-80 text-[clamp(14px,2vw,16px)] font-light leading-6">
+//                             {activity.description}
+//                         </span>
+
+//                         <div className="flex items-center justify-center h-[250px] w-full relative rounded-md">
+//                             <Image
+//                                 src={activity.image}
+//                                 alt={activity.title}
+//                                 width={100}
+//                                 height={100}
+//                                 priority
+//                                 className="object-cover w-full h-full rounded-md"
+//                             />
+//                         </div>
+//                     </div>
+//                 </div>
+//             </motion.div>
+
+//             {/* ✅ Slider Section */}
+//             <div className="w-full flex-grow flex flex-col p-5 sm:p-10 bg-[rgba(255,255,255,0.06)]">
+//                 <div className="flex-col flex gap-8">
+
+//                     {/* ✅ Header */}
+//                     <div className="flex w-full items-center justify-between">
+//                         <span className="text-[clamp(18px,3vw,30px)] text-white font-bold">
+//                             Latest at geminus
+//                         </span>
+
+//                         <div className="flex gap-2">
+//                             <Button
+//                                 className="rounded-full p-2 bg-transparent border"
+//                                 disabled={selectedAcivity === 0}
+//                                 onClick={() => {
+//                                     setDirection(-1)
+//                                     setSelectedActivity(prev => prev - 1)
+//                                     setSelectedComment(0)
+//                                 }}
+//                             >
+//                                 <ArrowLeft className="text-white" />
+//                             </Button>
+
+//                             <Button
+//                                 className="rounded-full p-2 bg-transparent border"
+//                                 disabled={selectedAcivity === activity.newslatters.length - 1}
+//                                 onClick={() => {
+//                                     setDirection(1)
+//                                     setSelectedActivity(prev => prev + 1)
+//                                     setSelectedComment(0)
+//                                 }}
+//                             >
+//                                 <ArrowRight className="text-white" />
+//                             </Button>
+//                         </div>
+//                     </div>
+
+//                     <AnimatePresence mode="wait" custom={direction}>
+//                         <motion.div
+//                             key={selectedAcivity}
+//                             custom={direction}
+//                             variants={slideVariants}
+//                             initial="enter"
+//                             animate="center"
+//                             exit="exit"
+//                             style={{ willChange: "transform, opacity" }}
+//                             className="flex flex-col gap-6"
+//                         >
+//                             <div className="bg-white p-5 sm:p-10 rounded-md">
+//                                 <span className="text-[clamp(18px,2.5vw,22px)] text-black font-bold">
+//                                     {activity.newslatters[selectedAcivity].title}
+//                                 </span>
+
+//                                 <div className="h-[250px] w-full rounded-md mt-4">
+//                                     <Image
+//                                         src={activity.newslatters[selectedAcivity].image}
+//                                         alt=""
+//                                         height={100}
+//                                         width={100}
+//                                         priority
+//                                         className="object-cover h-full w-full rounded-md"
+//                                     />
+//                                 </div>
+
+//                                 <div className="mt-4 flex flex-col gap-2">
+//                                     <span className="text-black font-semibold">
+//                                         {activity.newslatters[selectedAcivity].subtitle}
+//                                     </span>
+
+//                                     <span className="text-black opacity-80 font-light">
+//                                         {activity.newslatters[selectedAcivity].description}
+//                                     </span>
+//                                 </div>
+//                             </div>
+
+//                             <AnimatePresence mode="wait">
+//                                 <motion.div
+//                                     key={selectedComment}
+//                                     initial={{ opacity: 0, y: 30 }}
+//                                     animate={{ opacity: 1, y: 0 }}
+//                                     exit={{ opacity: 0, y: -30 }}
+//                                     transition={{
+//                                         type: "spring",
+//                                         stiffness: 250,
+//                                         damping: 25,
+//                                     }}
+
+//                                     className="bg-[rgba(173,198,198,0.19)] p-5 sm:p-10 flex flex-col gap-5 rounded-md"
+//                                 >
+//                                     <div className="flex justify-between">
+//                                         <span className="text-white text-sm">
+//                                             {selectedComment + 1} / {activity.newslatters[selectedAcivity].comments.length}
+//                                         </span>
+
+//                                         <div className="flex gap-2">
+//                                             <Button
+//                                                 className="rounded-full p-2 bg-transparent border"
+//                                                 disabled={selectedComment === 0}
+//                                                 onClick={() => setSelectedComment(p => p - 1)}
+//                                             >
+//                                                 <ArrowLeft className="text-white" />
+//                                             </Button>
+
+//                                             <Button
+//                                                 className="rounded-full p-2 bg-transparent border"
+//                                                 disabled={
+//                                                     selectedComment ===
+//                                                     activity.newslatters[selectedAcivity].comments.length - 1
+//                                                 }
+//                                                 onClick={() => setSelectedComment(p => p + 1)}
+//                                             >
+//                                                 <ArrowRight className="text-white" />
+//                                             </Button>
+//                                         </div>
+//                                     </div>
+
+//                                     <div className='flex flex-col gap-2'>
+//                                         <span className='text-[clamp(14px,1vw,18px)] text-white font-light text-wrap'>
+//                                             {activity.newslatters[selectedAcivity].comments[selectedComment].comment}
+//                                         </span>
+//                                         <div className='flex flex-col'>
+//                                             <span className='text-white opacity-90 text-[clamp(14px,1vw,18px)] text-wrap font-semibold'>
+//                                                 {activity.newslatters[selectedAcivity].comments[selectedComment].owner}
+//                                             </span>
+//                                             <span className='text-white opacity-80 text-[clamp(12px,1vw,14px)] text-wrap font-light'>
+//                                                 {activity.newslatters[selectedAcivity].comments[selectedComment].designation}
+//                                             </span>
+//                                         </div>
+//                                     </div>
+//                                 </motion.div>
+//                             </AnimatePresence>
+//                         </motion.div>
+//                     </AnimatePresence>
+//                 </div>
+//             </div>
+//         </section>
+//     )
+// }
+
+
 'use client'
 
-import { CareerDetails, cn, } from '@/lib/utils'
+import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import { Button } from '../ui/button'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence, Variants } from 'framer-motion'
+import { CareerDetails } from './utils'
 
 export const Activity = () => {
     const activity = CareerDetails['activity']
+
     const [selectedAcivity, setSelectedActivity] = useState(0)
     const [selectedComment, setSelectedComment] = useState(0)
+    const [direction, setDirection] = useState(1)
+
+    // ✅ Ultra-smooth GPU based animation
+    const slideVariants: Variants = {
+        enter: (dir: number) => ({
+            x: dir > 0 ? 120 : -120,
+            opacity: 0,
+        }),
+        center: {
+            x: 0,
+            opacity: 1,
+            transition: {
+                duration: 0.35,
+                ease: [0.16, 1, 0.3, 1], // ✅ butter smooth cubic-bezier
+            },
+        },
+        exit: (dir: number) => ({
+            x: dir > 0 ? -120 : 120,
+            opacity: 0,
+            transition: {
+                duration: 0.3,
+                ease: [0.4, 0, 1, 1],
+            },
+        }),
+    }
 
     return (
-        <section className='flex flex-col gap-20' id='activity'>
+        <section id="activity" className="flex flex-col gap-20">
+
+            {/* ✅ Overview (unchanged look) */}
             <motion.div
-                id='overview'
-                initial={{ opacity: 0, transform: 'scale(0.5)' }}
-                whileInView={{ opacity: 1, transform: 'scale(1)' }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: false, amount: 0.2 }}
-                transition={{ duration: 0.4, ease: 'easeOut', delay: 0.2 }}
-                className='w-full flex-grow flex flex-col p-5 sm:p-10 bg-white'>
-                <div className='flex-col flex gap-6'>
-                    <span className='text-[clamp(18px,3vw,30px)] text-black underline decoration-2 underline-offset-8 font-bold'>
+                transition={{ duration: 0.4, ease: 'easeOut' }}
+                className="w-full flex-grow flex flex-col p-5 sm:p-10 bg-white"
+            >
+                <div className="flex-col flex gap-6">
+                    <span className="text-[clamp(18px,3vw,30px)] text-black underline decoration-2 underline-offset-8 font-bold">
                         {activity.title}
                     </span>
-                    <div className={cn('gap-10 grid grid-cols-1 lg:grid-cols-2 items-center',)}>
-                        <span className='text-black opacity-80 text-[clamp(14px,2vw,16px)] text-wrap font-light leading-6'>
+
+                    <div className={cn('gap-10 grid grid-cols-1 lg:grid-cols-2 items-center')}>
+                        <span className="text-black opacity-80 text-[clamp(14px,2vw,16px)] font-light leading-6 text-wrap">
                             {activity.description}
                         </span>
-                        <div className='flex items-center justify-center h-[250px] w-full relative rounded-md'>
-                            <Image src={activity.image} alt={activity.title} width={100} height={100} className='object-cover w-full h-full rounded-md' />
+
+                        <div className="flex items-center justify-center h-[250px] w-full relative rounded-md">
+                            <Image
+                                src={activity.image}
+                                alt={activity.title}
+                                width={100}
+                                height={100}
+                                className="object-cover w-full h-full rounded-md"
+                            />
                         </div>
                     </div>
                 </div>
             </motion.div>
-            <div className='w-full flex-grow flex flex-col p-5 sm:p-10 bg-[rgba(255,255,255,0.06)]'>
-                <div className='flex-col flex gap-8'>
-                    <div className='flex w-full items-center justify-between'>
-                        <div className='text-[clamp(18px,3vw,30px)] text-white gap-1.5 flex sm:flex-row flex-col text-wrap font-bold'>
-                            <span className='sm:underline decoration-2 underline-offset-8'>
-                                Latest at geminus
-                            </span>
-                        </div>
-                        <div className='flex gap-2 shrink-0'>
-                            <Button className='rounded-full p-2 sm:p-3 h-auto bg-transparent border hover:bg-transparent'
+
+            {/* ✅ Slider */}
+            <div className="w-full flex-grow flex flex-col p-5 sm:p-10 bg-[rgba(255,255,255,0.06)]">
+                <div className="flex-col flex gap-8">
+
+                    {/* Header */}
+                    <div className="flex w-full items-center justify-between">
+                        <span className="text-[clamp(18px,3vw,30px)] text-white font-bold">
+                            Latest at geminus
+                        </span>
+
+                        <div className="flex gap-2">
+                            <Button
+                                variant="ghost"
+                                className="rounded-full p-2 bg-transparent border"
                                 disabled={selectedAcivity === 0}
                                 onClick={() => {
-                                    setSelectedActivity((prev) => prev - 1)
+                                    setDirection(-1)
+                                    setSelectedActivity(p => p - 1)
                                     setSelectedComment(0)
                                 }}
                             >
-                                <ArrowLeft className='text-white' />
+                                <ArrowLeft className="text-white" />
                             </Button>
-                            <Button className='rounded-full p-2 sm:p-3 h-auto bg-transparent hover:bg-transparent border'
+
+                            <Button
+                                variant="ghost"
+                                className="rounded-full p-2 bg-transparent border"
                                 disabled={selectedAcivity === activity.newslatters.length - 1}
                                 onClick={() => {
-                                    setSelectedActivity((prev) => prev + 1)
+                                    setDirection(1)
+                                    setSelectedActivity(p => p + 1)
                                     setSelectedComment(0)
                                 }}
                             >
-                                <ArrowRight className='text-white' />
+                                <ArrowRight className="text-white" />
                             </Button>
                         </div>
                     </div>
-                    {activity.newslatters.map((content, index) => {
-                        if (selectedAcivity !== index) return
-                        return (
-                            <motion.div
-                                initial={{ x: -20, y: -20, opacity: 0 }}
-                                whileInView={{ x: 0, y: 0, opacity: 1 }}
-                                viewport={{ once: false, amount: 0.2 }}
-                                transition={{
-                                    duration: 0.5,
-                                    ease: 'easeInOut',
-                                    delay: 0.1 * index, // This creates the staggered effect
-                                }} key={`activity-${index}`} className={'gap-6 flex flex-col'}>
-                                <div className='bg-white p-5 sm:p-10 rounded-md'>
-                                    <div className='flex flex-col gap-4'>
-                                        <span className='text-[clamp(18px,2.5vw,22px)] text-black font-bold text-wrap'>
-                                            {content.title}
+
+                    {/* ✅ MAIN CARD SLIDE */}
+                    <AnimatePresence mode="wait" custom={direction}>
+                        <motion.div
+                            key={selectedAcivity}
+                            custom={direction}
+                            variants={slideVariants}
+                            initial="enter"
+                            animate="center"
+                            exit="exit"
+                            style={{ willChange: 'transform, opacity' }}
+                            className="flex flex-col gap-6"
+                        >
+                            <div className="bg-white p-5 sm:p-10 rounded-md">
+                                <span className="text-[clamp(18px,2.5vw,22px)] text-black font-bold">
+                                    {activity.newslatters[selectedAcivity].title}
+                                </span>
+
+                                <div className="h-[250px] w-full rounded-md mt-4">
+                                    <Image
+                                        src={activity.newslatters[selectedAcivity].image}
+                                        alt=""
+                                        height={100}
+                                        width={100}
+                                        className="object-cover h-full w-full rounded-md"
+                                    />
+                                </div>
+
+                                <div className="mt-4 flex flex-col gap-2">
+                                    <span className="text-black font-semibold">
+                                        {activity.newslatters[selectedAcivity].subtitle}
+                                    </span>
+
+                                    <span className="text-black opacity-80 font-light text-wrap">
+                                        {activity.newslatters[selectedAcivity].description}
+                                    </span>
+                                </div>
+                            </div>
+
+                            {/* ✅ COMMENT ANIMATION */}
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={selectedComment}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -20 }}
+                                    transition={{ duration: 0.25, ease: 'easeOut' }}
+                                    className="bg-[rgba(173,198,198,0.19)] p-5 sm:p-10 flex flex-col gap-5 rounded-md"
+                                >
+                                    <div className="flex justify-between">
+                                        <span className="text-white text-sm">
+                                            {selectedComment + 1} / {activity.newslatters[selectedAcivity].comments.length}
                                         </span>
-                                        <div className='h-[250px] w-full rounded-md'>
-                                            <Image src={content.image} alt={content.title} height={100} width={100} className='object-cover  h-full w-full rounded-md' />
+
+                                        <div className="flex gap-2">
+                                            <Button
+                                                variant="ghost"
+                                                className="rounded-full p-2 bg-transparent border"
+                                                disabled={selectedComment === 0}
+                                                onClick={() => setSelectedComment(p => p - 1)}
+                                            >
+                                                <ArrowLeft className="text-white" />
+                                            </Button>
+
+                                            <Button
+                                                variant="ghost"
+                                                className="rounded-full p-2 bg-transparent border"
+                                                disabled={
+                                                    selectedComment ===
+                                                    activity.newslatters[selectedAcivity].comments.length - 1
+                                                }
+                                                onClick={() => setSelectedComment(p => p + 1)}
+                                            >
+                                                <ArrowRight className="text-white" />
+                                            </Button>
                                         </div>
-                                        <div className='flex flex-col gap-2'>
-                                            <span className='text-black text-[clamp(14px,2vw,16px)] text-wrap font-semibold'>
-                                                {content.subtitle}
+                                    </div>
+
+                                    <div className='flex flex-col gap-2'>
+                                        <span className='text-[clamp(14px,1vw,18px)] text-white font-light text-wrap'>
+                                            {activity.newslatters[selectedAcivity].comments[selectedComment].comment}
+                                        </span>
+                                        <div className='flex flex-col'>
+                                            <span className='text-white opacity-90 font-semibold'>
+                                                {activity.newslatters[selectedAcivity].comments[selectedComment].owner}
                                             </span>
-                                            <span className='text-black opacity-80 text-[clamp(14px,2vw,16px)] text-wrap font-light'>
-                                                {content.description}
+                                            <span className='text-white opacity-80 text-sm'>
+                                                {activity.newslatters[selectedAcivity].comments[selectedComment].designation}
                                             </span>
                                         </div>
                                     </div>
-                                </div>
-                                {content.comments.map((comment, index) => {
-                                    if (selectedComment !== index) return
-                                    return (
-                                        <motion.div
-                                            initial={{ opacity: 0, transform: 'scale(0)' }}
-                                            whileInView={{ opacity: 1, transform: 'scale(1)' }}
-                                            viewport={{ once: true, amount: 0.2 }}
-                                            transition={{ duration: 0.4, ease: 'easeOut', delay: 0.2 }}
-                                            key={`comment-${index}`} className='bg-[rgba(173,198,198,0.19)] p-5 sm:p-10 flex flex-col gap-5 rounded-md'>
-                                            <div className='flex w-full items-center justify-between'>
-                                                <span className='text-[16px] text-white gap-1.5 flex flex-row'>
-                                                    {`${selectedComment + 1 < 10 ? `0${selectedComment + 1}` : selectedComment + 1}-${content.comments.length < 10 ? `0${content.comments.length}` : content.comments.length}`}
-                                                </span>
-                                                <div className='flex gap-2 shrink-0'>
-                                                    <Button className='rounded-full p-2 h-auto bg-transparent border hover:bg-transparent'
-                                                        disabled={selectedComment === 0}
-                                                        onClick={() => setSelectedComment((prev) => prev - 1)}
-                                                    >
-                                                        <ArrowLeft className='text-white' />
-                                                    </Button>
-                                                    <Button className='rounded-full p-2 h-auto bg-transparent hover:bg-transparent border'
-                                                        disabled={selectedComment === content.comments.length - 1}
-                                                        onClick={() => setSelectedComment((prev) => prev + 1)}
-                                                    >
-                                                        <ArrowRight className='text-white' />
-                                                    </Button>
-                                                </div>
-                                            </div>
-                                            <div className='flex flex-col gap-2'>
-                                                <span className='text-[clamp(14px,1vw,18px)] text-white font-light text-wrap'>
-                                                    {comment.comment}
-                                                </span>
-                                                <div className='flex flex-col'>
-                                                    <span className='text-white opacity-90 text-[clamp(14px,1vw,18px)] text-wrap font-semibold'>
-                                                        {comment.owner}
-                                                    </span>
-                                                    <span className='text-white opacity-80 text-[clamp(12px,1vw,14px)] text-wrap font-light'>
-                                                        {comment.designation}
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </motion.div>
-                                    )
-                                })}
-                            </motion.div>
-                        )
-                    })}
+                                </motion.div>
+                            </AnimatePresence>
+
+                        </motion.div>
+                    </AnimatePresence>
                 </div>
             </div>
         </section>

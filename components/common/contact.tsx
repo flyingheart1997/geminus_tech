@@ -102,7 +102,7 @@ export const Contact = ({ showForm = false }: { showForm?: boolean }) => {
                                 <div className='z-10 sm:p-10 p-5 flex flex-col gap-10 h-full w-full'>
                                     <div className='flex flex-col gap-4 w-full max-w-[clamp(420px,70%,1024px)] items-center md:items-start text-center md:text-start'>
                                         <span className='flex md:hidden text-[clamp(18px,3vw,32px)] text-white font-bold underline underline-offset-[12px] decoration-black decoration-1'>Ready to Transform Your Digital Presence?</span>
-                                        <span className='hidden md:flex text-[clamp(18px,3vw,32px)] text-white font-bold underline underline-offset-[12px] decoration-black decoration-1'>Get in Touch</span>
+                                        <span className='hidden md:flex text-[clamp(18px,3vw,32px)] text-white font-bold underline underline-offset-[12px] decoration-black decoration-1 font-chakra'>Get in Touch</span>
                                         <p className='w-full text-[clamp(12px,1vw,18px)] text-white/80 !leading-tight'>Ready to take the next step in transforming your business with Geminus Tech? We're here to help! Reach out to us today to discuss your specific needs and discover how our expertise can empower your organization.</p>
                                         <Button className="bg-[rgba(12,1,1,1)] text-white shadow-[-1px_0px_1px_1px_rgb(255,255,255,0.4)] md:hidden mt-5 flex items-center justify-center rounded-full px-[clamp(12px,2vw,20px)] py-[clamp(6px,1.6vw,10px)] gap-2 text-sm font-medium"
                                             onClick={() => { }}
@@ -161,7 +161,7 @@ export const Contact = ({ showForm = false }: { showForm?: boolean }) => {
                                                     <div className='w-full flex flex-col gap-2'>
                                                         <Button
                                                             disabled={isLoading}
-                                                            className="bg-transparent hover:bg-transparent shadow-[-1px_0px_1px_1px_rgb(255,255,255,0.4)] text-white mt-5 flex items-center justify-center rounded-full px-[clamp(12px,2vw,20px)] py-[clamp(6px,1.6vw,10px)] gap-2 text-sm font-medium disabled:opacity-50"
+                                                            className="bg-transparent font-chakra hover:bg-transparent shadow-[-1px_0px_1px_1px_rgb(255,255,255,0.4)] text-white mt-5 flex items-center justify-center rounded-full px-[clamp(12px,2vw,20px)] py-[clamp(6px,1.6vw,10px)] gap-2 text-sm font-medium disabled:opacity-50"
                                                             onClick={handleSubmit}
                                                         >
                                                             {isLoading ? 'Sending...' : 'Send Your Inquiry'}
@@ -180,8 +180,8 @@ export const Contact = ({ showForm = false }: { showForm?: boolean }) => {
                                 <div className='z-10 sm:p-10 p-5 flex flex-col gap-10 h-full w-full items-center justify-center'>
                                     <div className='flex flex-col gap-4 w-full max-w-[clamp(420px,70%,1024px)] items-center text-center'>
                                         <span className='flex text-[clamp(16px,3vw,28px)] text-white font-bold underline underline-offset-[12px] decoration-black decoration-1'>Ready to Transform Your Digital Presence?</span>
-                                        <p className='w-full text-[clamp(12px,2vw,20px)] text-white/80 !leading-tight'>Reach out to us today to discuss your specific needs and discover how our expertise can empower your organization.</p>
-                                        <Link className="bg-[rgba(12,1,1,1)] text-white flex items-center justify-center shadow-[-1px_0px_1px_1px_rgb(255,255,255,0.4)] hover:shadow-[1px_0px_0px_1px_rgba(255,255,255,0.4)] rounded-full px-[clamp(12px,2vw,20px)] py-[clamp(6px,1.6vw,10px)] gap-2 text-sm font-light transition duration-300"
+                                        <p className='w-full text-[clamp(12px,2vw,20px)] text-white/80 !leading-tight font-chakra'>Reach out to us today to discuss your specific needs and discover how our expertise can empower your organization.</p>
+                                        <Link className="bg-[rgba(12,1,1,1)] text-white font-chakra flex items-center justify-center shadow-[-1px_0px_1px_1px_rgb(255,255,255,0.4)] hover:shadow-[1px_0px_0px_1px_rgba(255,255,255,0.4)] rounded-full px-[clamp(12px,2vw,20px)] py-[clamp(6px,1.6vw,10px)] gap-2 text-sm font-light transition duration-300"
                                             href="#contact">
                                             Contact Us
                                         </Link>
