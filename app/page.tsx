@@ -13,7 +13,7 @@ export default function Home() {
     <main className="h-full w-full gap-20 flex flex-col">
       <Hero />
       <Workes />
-      <About />
+      {/* <About /> */}
       <Companies />
       <NewsLatters />
       {/* <Blogs /> */}

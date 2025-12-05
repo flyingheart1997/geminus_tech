@@ -49,7 +49,7 @@ export const Landscape: React.FC<LandscapeCardProps> = ({ contents }) => {
                                     delay: index * 0.2,
 
                                 }}
-                                className={cn('w-[clamp(18px,3vw,40px)] h-[clamp(18px,3vw,40px)] sm:w-[clamp(18px,3vw,40px)] sm:h-[clamp(18px,3vw,40px)] flex justify-center items-center absolute -left-[12px] sm:-left-[20px]')} >
+                                className={cn('w-[24px] h-[24px] sm:w-[40px] sm:h-[40px] flex justify-center items-center absolute -left-[12px] sm:-left-[20px]')} >
                                 <Image src='/landscape_progress.svg' alt='landscape_progress' width={100} height={100} className='object-contain w-full h-full' />
                             </motion.div>
                             <motion.div

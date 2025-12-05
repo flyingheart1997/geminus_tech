@@ -5,6 +5,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { LatestNews } from '@/lib/utils'
 import { SectionLabel } from './section-label'
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '../ui/dialog'
+import { Button } from '../ui/button'
 
 export const NewsLatters = () => {
     return (
@@ -17,29 +19,37 @@ export const NewsLatters = () => {
                             <span className='text-[clamp(18px,3vw,32px)] w-full font-bold underline underline-offset-[12px] decoration-white/20 decoration-1 text-white font-chakra'>Latest at </span>
                             <p className='w-full text-[clamp(12px,2vw,20px)] text-white/80'>Each event here tells a story of progress of teams pushing boundaries, delivering excellence, and creating lasting impact along the way.</p>
                         </div>
-                        <div className="hidden md:flex items-center justify-center
-                    h-auto rounded-full backdrop-blur-[15px] backdrop-brightness-[100%] 
-                    bg-gradient-to-r from-[rgb(79,170,155)] to-[rgb(9,79,67)] p-[1px]"
-                        >
-                            <Link className="bg-[rgba(12,1,1,1)] rounded-full flex px-[clamp(12px,2vw,20px)] py-[clamp(6px,1.6vw,10px)] gap-2 text-sm font-light text-white"
-                                href="#">
-                                View All
-                                <Image src="/link.svg" alt="link" width={16} height={16} className="w-auto h-auto" />
-                            </Link>
-                        </div>
                     </div>
 
                     <BentoGrid>
                         {LatestNews.map((item, i) => (
-                            <BentoGridItem
-                                key={i}
-                                index={i}
-                                title={item.title}
-                                description={item.description}
-                                image={item.image}
-                                // icon={item.icon}
-                                createdAt={item.createdAt}
-                            />
+                            <Dialog key={i}>
+                                <DialogTrigger asChild>
+                                    <div className='flex w-auto h-auto'>
+                                        <BentoGridItem
+                                            key={i}
+                                            index={i}
+                                            title={item.title}
+                                            description={item.description}
+                                            image={item.image}
+                                            // icon={item.icon}
+                                            createdAt={item.createdAt}
+                                        />
+                                    </div>
+                                </DialogTrigger>
+                                <DialogContent className="flex flex-col gap-4 h-[90%] w-[90%]">
+                                    <DialogTitle>{item.title}</DialogTitle>
+                                    <div className='flex flex-1 border'>
+                                        <iframe
+                                            width="100%"
+                                            height="100%"
+                                            src={`${item.link}#toolbar=0&navpanes=0&scrollbar=0`}
+                                            title={item.title}
+                                        />
+                                    </div>
+                                </DialogContent>
+                            </Dialog>
+
                         ))}
                     </BentoGrid>
                 </div>

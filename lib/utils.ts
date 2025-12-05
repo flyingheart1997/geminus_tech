@@ -34,23 +34,63 @@ export const Header_Menu = [
 
 export const CompaniesList = [
   {
-    src: "/c_antaris.svg",
+    src: "/companys-logo/antaris.svg",
     // link: "#google",
   },
   {
-    src: "/c_watermelon.svg",
+    src: "/companys-logo/watermalon.svg",
     // link: "#microsoft",
   },
   {
-    src: "/c_primaryio.svg",
+    src: "/companys-logo/primaryio.svg",
     // link: "#apple",
   },
   {
-    src: "/c_oracel.svg",
+    src: "/companys-logo/oracel.svg",
     // link: "#amazon",
   },
   {
-    src: "/c_diamanti.svg",
+    src: "/companys-logo/diamanti.svg",
+    // link: "#facebook",
+  },
+  {
+    src: "/companys-logo/marvel.svg",
+    // link: "#facebook",
+  },
+  {
+    src: "/companys-logo/pensando.svg",
+    // link: "#facebook",
+  },
+  {
+    src: "/companys-logo/toshiba.svg",
+    // link: "#facebook",
+  },
+  {
+    src: "/companys-logo/sonatas.svg",
+    // link: "#facebook",
+  },
+  {
+    src: "/companys-logo/k2view.svg",
+    // link: "#facebook",
+  },
+  {
+    src: "/companys-logo/movellus.svg",
+    // link: "#facebook",
+  },
+  {
+    src: "/companys-logo/xsight.svg",
+    // link: "#facebook",
+  },
+  {
+    src: "/companys-logo/apix.svg",
+    // link: "#facebook",
+  },
+  {
+    src: "/companys-logo/agito.svg",
+    // link: "#facebook",
+  },
+  {
+    src: "/companys-logo/tensormem.svg",
     // link: "#facebook",
   },
 ];
@@ -147,22 +187,25 @@ export const BlogsDetails = [
 
 export const LatestNews = [
   {
-    title: "Sep-Oct’ 25 Edition Company newsletter",
+    title: "Sep-Oct 25 Edition Company newsletter",
     description: "Key Updates : SONATUS INDIA: DRIVING IMPACT Expanding Expertise& Ownership.The Sonatus India team is strengthening its QA and Devel.",
-    image: "/news-latter.svg",
+    image: "/news-latter/news_latter.svg",
     createdAt: "Nov 08 • 1 month ago",
+    link: '/news-latter/newsletter_sep_oct_25_edition.pdf'
   },
   {
-    title: "Sep-Oct’ 25 Edition Company newsletter",
+    title: "Sep-Oct 25 Edition Company newsletter",
     description: "Key Updates : SONATUS INDIA: DRIVING IMPACT Expanding Expertise& Ownership.The Sonatus India team is strengthening its QA and Devel.",
-    image: "/news-latter.svg",
+    image: "/news-latter/news_latter.svg",
     createdAt: "Nov 08 • 1 month ago",
+    link: '/news-latter/newsletter_sep_oct_25_edition.pdf'
   },
   {
     title: "August 2025 Company newsletter",
     description: "Key updates : XSight Labs –QuickHighlights Spotlight: XSight Labs E1 – Next- Gen InfrastructureProcessorThe XSight Labs.",
-    image: "/news-latter.svg",
+    image: "/news-latter/news_latter.svg",
     createdAt: "Sept 09 • 3 months ago",
+    link: '/news-latter/newsletter_august_25_dition.pdf'
   },
 ];
 

@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { ChevronDownIcon } from "lucide-react";
 import SidebarMenu from "./sidebar-menu";
+import { CommonLink } from "./common-link";
 
 export function Header() {
     const pathname = usePathname()
@@ -25,44 +26,20 @@ export function Header() {
     const headerRef = useRef(null);
 
     useEffect(() => {
-        let lastScrollY = window.scrollY;
-        let hideTimer: NodeJS.Timeout | null = null;
-
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
-
-            // ✅ Scroll direction detect
-            if (currentScrollY < lastScrollY) {
-                // Scrolling UP → Header show
-                setVisible(true);
-                if (hideTimer) clearTimeout(hideTimer);
-
-                hideTimer = setTimeout(() => {
-                    if (currentScrollY > 200) {
-                        setVisible(false);
-                    }
-                }, 4000); // ⏳ 4 seconds baad hide
-            }
-            else {
-                // Scrolling DOWN → Header hide immediately
+            if (currentScrollY > 200) {
                 setVisible(false);
-
-                if (hideTimer) {
-                    clearTimeout(hideTimer);
-                    hideTimer = null;
-                }
+            } else {
+                setVisible(true);
             }
-
-            lastScrollY = currentScrollY;
         };
-
         window.addEventListener("scroll", handleScroll, { passive: true });
-
         return () => {
             window.removeEventListener("scroll", handleScroll);
-            if (hideTimer) clearTimeout(hideTimer);
         };
     }, []);
+
 
 
     return (
@@ -79,22 +56,24 @@ export function Header() {
                 }}
                 className={`w-full shadow top-0 z-50 fixed ${visible ? '' : '-translate-y-full'}  transition-transform duration-300`}>
                 <ContainerProvider>
-                    <header className="py-[clamp(12px,3vw,20px)] relative flex items-center justify-between">
-                        <div className="flex items-center">
+                    <header className="py-[clamp(16px,3vw,20px)] relative flex items-center justify-between">
+                        <Link href="/" className="flex items-center">
                             <Image src="/logo.svg" alt="Logo" height={200} width={200} className="object-contain w-[clamp(112px,14vw,200px)]" />
-                        </div>
+                        </Link>
 
                         <div className="hidden md:flex items-center justify-between
                         h-auto rounded-full backdrop-blur-[15px] backdrop-brightness-[100%] 
                         bg-gradient-to-r from-[rgb(79,170,155)] to-[rgb(9,79,67)] p-[1px]"
                         >
-                            <div className="bg-[rgba(12,1,1,1)] rounded-full flex p-2">
+                            <div className="bg-[rgba(12,1,1,1)] rounded-full flex px-1.5 py-1">
                                 {Header_Menu.map((item, index) => {
                                     const active = (pathname === '/') ? ' ' : pathname
                                     if (item.title === 'Company') {
                                         return (
-                                            <DropdownMenu open={open} onOpenChange={setOpen} key={index}>
-                                                <DropdownMenuTrigger className={`text-sm text-white font-chakra flex gap-2 items-center px-[clamp(8px,1.6vw,12px)] py-[clamp(4px,1.2vw,6px)] rounded-[clamp(8px,2vw,23px)] ${active.includes(item.link) ? 'bg-[#094F43]' : 'bg-transparent'}`} >
+                                            <DropdownMenu open={open} onOpenChange={setOpen} key={item.title}>
+                                                <DropdownMenuTrigger id="company-dropdown-trigger" className={cn(`text-sm text-white font-chakra flex gap-2 items-center px-[clamp(8px,1.6vw,12px)] py-[clamp(4px,1vw,6px)] rounded-[clamp(8px,2vw,23px)]`,
+                                                    active.includes(item.link) ? 'bg-[#094F43]' : 'bg-transparent hover:bg-[#094f4377]'
+                                                )} >
                                                     Company <ChevronDownIcon
                                                         aria-hidden="true"
                                                         className="shrink-0 text-muted-foreground/80"
@@ -118,8 +97,10 @@ export function Header() {
                                         )
                                     } else {
                                         return (
-                                            <Link href={`/${item.link}`} key={index}
-                                                className={`text-sm text-white px-[clamp(8px,1.6vw,12px)] font-chakra py-[clamp(4px,1.2vw,6px)] rounded-[clamp(8px,2vw,23px)] ${active.includes(item.link) ? 'bg-[#094F43]' : 'bg-transparent'}`}
+                                            <Link href={`/${item.link}`} key={item.title}
+                                                className={cn(`text-sm text-white px-[clamp(8px,1.6vw,12px)] font-chakra py-[clamp(4px,1.2vw,6px)] rounded-[clamp(8px,2vw,23px)]`,
+                                                    active.includes(item.link) ? 'bg-[#094F43]' : 'bg-transparent hover:bg-[#094f4377]'
+                                                )}
                                             >
                                                 {item.title}
 
@@ -129,11 +110,7 @@ export function Header() {
                                 })}
                             </div>
                         </div>
-                        <Link className="bg-[rgba(12,1,1,1)] font-chakra text-white hidden lg:flex items-center justify-center shadow-[-1px_0px_1px_1px_rgb(255,255,255,0.4)] hover:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.4)] rounded-full px-[clamp(12px,2vw,20px)] py-[clamp(6px,1.6vw,10px)] gap-2 text-sm font-light transition duration-300"
-                            href="#contact">
-                            Contact Us
-                            <Image src="/link.svg" alt="link" width={16} height={16} className="w-auto h-auto" />
-                        </Link>
+                        <CommonLink link="#contact" text="Contact Us" className='hidden lg:flex' />
 
                         <div className="md:hidden flex items-center justify-center">
                             <Button id="menu" className="bg-transparent p-0 w-auto h-auto hover:bg-transparent"

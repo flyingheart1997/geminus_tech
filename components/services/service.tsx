@@ -5,9 +5,12 @@ import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Services } from './utils';
+import useScrollNextSection from '@/hooks/useScrollNextSection';
 
 export const Service = () => {
     const { service_id } = useParams()
+    useScrollNextSection()
+
     const service = Services.find(service => service.name.replace(/\s+/g, '_').toLowerCase() === service_id)
     if (!service) return <div>Service not found {service_id}</div>
     return (
@@ -15,7 +18,7 @@ export const Service = () => {
             <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: false, amount: 0.2 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{
                     duration: 1,
                     ease: "easeInOut",
@@ -43,12 +46,12 @@ export const Service = () => {
                             whileInView={{ y: 0, opacity: 1 }}
                             viewport={{ once: false, amount: 0.2 }}
                             transition={{
-                                duration: 0.5,
+                                duration: 0.3,
                                 ease: 'easeInOut',
                                 delay: 0.1 * index, // This creates the staggered effect
                             }}
                             className='flex gap-5' key={index}>
-                            <span className={cn('hidden sm:flex text-[clamp(28px,6vw,40px)] font-bold text-wrap text-[#101010] font-chakra')}>{row_no}</span>
+                            <span className={cn('hidden sm:flex text-[clamp(28px,6vw,40px)] w-14 font-bold text-wrap text-[#101010] font-chakra')}>{row_no}</span>
                             <div className='border-l flex flex-col gap-5 relative p-5 sm:px-10 sm:pt-3 sm:pb-10 w-full'>
                                 <div className='w-1 h-10 bg-[#379888] absolute top-2 -left-0.5 rounded-md' />
                                 <span className='text-[clamp(16px,3vw,22px)] font-semibold text-wrap font-chakra'>{content.title}</span>
@@ -58,15 +61,15 @@ export const Service = () => {
                                         {content.tags.map((tag, index) => {
                                             return (
                                                 <motion.div
-                                                    initial={{ x: -20, y: -20, opacity: 0 }}
-                                                    whileInView={{ x: 0, y: 0, opacity: 1 }}
-                                                    viewport={{ once: true, amount: 0.2 }}
+                                                    initial={{ x: -20, opacity: 0 }}
+                                                    whileInView={{ x: 0, opacity: 1 }}
+                                                    viewport={{ once: false, amount: 0.2 }}
                                                     transition={{
-                                                        duration: 0.5,
+                                                        duration: 0.3,
                                                         ease: 'easeInOut',
-                                                        delay: 0.1 * index, // This creates the staggered effect
+                                                        delay: 0.2 * index, // This creates the staggered effect
                                                     }}
-                                                    key={index} className='bg-[#0F0F0F] rounded-full border shadow border-[#262626] flex px-5 py-2'>
+                                                    key={tag} className='bg-[#0F0F0F] rounded-full border shadow border-[#262626] flex px-5 py-2'>
                                                     <span className='text-[clamp(10px,1.6vw,14px)] font-light text-wrap opacity-80'>{tag}</span>
                                                 </motion.div>
                                             )

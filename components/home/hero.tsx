@@ -1,17 +1,15 @@
 
 'use client'
 
-import Image from 'next/image'
-import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { ContainerProvider } from '../providers/container-provider'
 import { cn } from '@/lib/utils'
-import { Button } from '../ui/button'
 import useScrollNextSection from '@/hooks/useScrollNextSection'
+import { CommonLink } from '../common/common-link'
 
 export const Hero = () => {
-    const { onScrollNext } = useScrollNextSection()
+    useScrollNextSection()
     const [textIndex, setTextIndex] = useState(0);
     const texts = [
         { text: 'Kubernetes' },
@@ -46,17 +44,13 @@ export const Hero = () => {
                             ease: "easeInOut",
                             delay: 0.2,
                         }}
-                        className='lg:w-[45%] flex flex-col sm:gap-8 gap-2 items-center lg:items-start'>
+                        className='lg:w-[45%] z-10 flex flex-col sm:gap-8 gap-2 items-center lg:items-start'>
                         <span className="text-[clamp(24px,5vw,50px)] leading-[1.2] lg:text-start text-center font-bold font-chakra text-white">
                             Realize Your Vision With Our Expertise
                         </span>
 
                         <span className='text-[clamp(14px,4vw,30px)] font-medium opacity-80 text-white'>Your Product Partner</span>
-                        <Link className="bg-[rgba(12,1,1,1)] shadow-[-1px_0px_1px_1px_rgb(255,255,255,0.4)] cursor-pointer z-10
-                        md:flex hidden w-auto rounded-full font-chakra text-white px-[30px] py-[10px] gap-1 text-[clamp(14px,3vw,18px)] font-light"
-                            href="/services">
-                            Explore Services
-                        </Link>
+                        <CommonLink link="/services" text="Explore Services" showImage={false} className='md:flex hidden' />
                     </motion.div>
 
                     <motion.div
@@ -87,23 +81,13 @@ export const Hero = () => {
                                 </div>
                             </div>
                         </div>
-                        <span className='special__text text-[clamp(48px,6vw,128px)] font-bold'>
+                        <span className='special__text text-center text-[clamp(48px,6vw,128px)] font-bold'>
                             {annimation.text}
                         </span>
                     </motion.div>
-
-                    <Link className="bg-[rgba(12,1,1,1)] shadow-[-1px_0px_1px_1px_rgb(255,255,255,0.4)] cursor-pointer
-                        md:hidden flex w-auto font-chakra rounded-full text-white px-[30px] py-[10px] gap-1 text-[clamp(14px,3vw,20px)] font-light"
-                        href="/services">
-                        Explore Services
-                    </Link>
+                    <CommonLink link="/services" text="Explore Services" showImage={false} className='flex md:hidden' />
                 </div>
             </ContainerProvider>
-            <div className='h-[clamp(90px,10vw,140px)] hidden sm:flex w-[clamp(24px,4.5vw,28px)] rounded-full bg-[#018FD1] absolute bottom-24 -left-[14px]' />
-            <div className='h-[clamp(90px,10vw,140px)] hidden sm:flex w-[clamp(24px,4.5vw,28px)] rounded-full bg-[#FBAA07] absolute top-24 -right-[14px]' />
-            <Button onClick={onScrollNext} variant='ghost' className='flex p-0 hove:bg-transparent absolute h-[clamp(36px,4.5vw,48px)] cursor-pointer animate-bounce w-[clamp(24px,4.5vw,28px)] z-50 bottom-5 border-[rgba(221,221,221,0.40)] rounded-full border-2'>
-                <Image src='/arrow_down.svg' alt='arrow down' width={100} height={100} />
-            </Button>
         </section>
     )
 }

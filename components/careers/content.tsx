@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import { cn, } from '@/lib/utils'
 import { ContainerProvider } from '../providers/container-provider'
 import { Button } from '../ui/button'
@@ -10,8 +10,8 @@ import { Jobs } from './jobs'
 import { CareerDetails } from './utils'
 
 export const Content = () => {
-    const section_ref = useRef<HTMLDivElement>(null);
 
+    const AllSectionIds = CareerDetails.sidebar_links.map((link) => link.id)
     const [section, set_section] = React.useState<{
         name: string;
         scroll: boolean
@@ -33,30 +33,31 @@ export const Content = () => {
         }
     }, [section]);
 
-
     useEffect(() => {
-        const container = section_ref.current;
-        if (container) {
-            const sections = container.querySelectorAll('section');
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            set_section({
-                                name: entry.target.id,
-                                scroll: false
-                            }); // Update the section ID based on the visible section
-                        }
-                    });
-                },
-                { root: container, threshold: 0.5 } // Adjust threshold as needed
-            );
-            sections.forEach((section) => observer.observe(section));
-            return () => {
-                sections.forEach((section) => observer.unobserve(section));
-            };
-        }
-    }, [])
+        const sections = document.querySelectorAll('section');
+        if (!sections.length) return;
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting && AllSectionIds.includes(entry.target.id)) {
+                        set_section({
+                            name: entry.target.id,
+                            scroll: false,
+                        });
+                    }
+                });
+            },
+            {
+                root: null,      // ✅ Ab viewport (body/window) ko observe karega
+                threshold: 0.5,  // ✅ 50% visible hone par trigger
+            }
+        );
+        sections.forEach((section) => observer.observe(section));
+        return () => {
+            sections.forEach((section) => observer.unobserve(section));
+            observer.disconnect();
+        };
+    }, [AllSectionIds.length]);
 
     const DetailsComponent: Record<string, React.FC> = {
         activity: Activity,
@@ -65,11 +66,11 @@ export const Content = () => {
     };
 
     return (
-        <div className='flex relative bg-[#020103]'>
+        <div className='flex relative'>
             <ContainerProvider className='p-0 pb-10'>
-                <section className='flex flex-col w-full h-full gap-5' ref={section_ref}>
-                    <div className='flex max-h-screen'>
-                        <div className='w-[clamp(160px,20vw,200px)] h-[clamp(160px,20vw,200px)] flex-col hidden md:flex sticky top-20 z-[5] backdrop-blur shadow'>
+                <section className='flex flex-col w-full h-full gap-5'>
+                    <div className='flex'>
+                        <div className='w-[clamp(160px,20vw,200px)] h-[clamp(160px,20vw,200px)] flex-col hidden md:flex sticky top-10 z-[5] backdrop-blur shadow'>
                             {CareerDetails.sidebar_links.map((link) => {
                                 return (
                                     <Button
@@ -87,7 +88,7 @@ export const Content = () => {
                                 )
                             })}
                         </div>
-                        <div className='flex-1 flex flex-col whitespace-nowrap overflow-y-auto backdrop-blur gap-10 shadow border-[0.5px] border-[rgba(140,218,209,0.20)] rounded-md pb-8'>
+                        <div className='flex-1 flex flex-col backdrop-blur gap-10 shadow border-[0.5px] border-[rgba(140,218,209,0.20)] rounded-md pb-8'>
                             {CareerDetails.sidebar_links.map(comp => {
                                 const Component = DetailsComponent[comp.id as keyof typeof DetailsComponent];
                                 if (!Component) return null;

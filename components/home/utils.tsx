@@ -2,6 +2,7 @@ export const WorksDetails = [
     {
         id: 1,
         title: "Product Services",
+        link: '/services',
         description: "We tackle challenges across the entire development lifecycle.",
         tags: ['Discovery-Ideation-Design ', 'Quality Engineering ', 'DevSecOps', 'Development', 'Modernisation'],
         image: <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
@@ -11,6 +12,7 @@ export const WorksDetails = [
     {
         id: 2,
         title: "Domains",
+        link: 'industries',
         description: "Our work spans a wide array of domains, defined by acumen, intent, and impact.",
         tags: ['Network SoC', 'Storage management', 'Device Drivers', 'Kubernetes & Cloud Native', 'Open Stack', 'AI & ML', 'Cyber Security', 'Space'],
         image: <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">

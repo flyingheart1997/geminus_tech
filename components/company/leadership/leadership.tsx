@@ -26,7 +26,7 @@ export const Leadership = () => {
 
                     <div className='flex w-full rounded-lg overflow-hidden'>
                         <div className="w-full">
-                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 w-full">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 w-full">
                                 {CompanyDetails.founders.founders.map((team, index) => (
                                     <div
                                         key={index}

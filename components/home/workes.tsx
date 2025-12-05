@@ -8,6 +8,7 @@ import { WorksDetails } from './utils'
 import { WorkerCard } from '../common/worker-card'
 import { ContainerProvider } from '../providers/container-provider'
 import { SectionLabel } from '../common/section-label'
+import { CommonLink } from '../common/common-link'
 
 export const Workes = () => {
     return (
@@ -17,7 +18,7 @@ export const Workes = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false, amount: 0.2 }}
+                    viewport={{ once: true, amount: 0.2 }}
                     transition={{ duration: 0.5, ease: 'easeOut' }}
                     className='flex h-auto w-full relative flex-col gap-24 items-center justify-center'
                 >
@@ -35,13 +36,14 @@ export const Workes = () => {
                                     <div className='flex flex-col items-center justify-start gap-4 w-full z-10'>
                                         <span className='text-[clamp(18px,2.5vw,28px)] font-semibold text-white'>{work.title}</span>
                                         <p className='text-[clamp(14px,2vw,16px)] text-center text-[#8C8C8C]'>{work.description}</p>
-                                        <div className='flex gap-2 flex-wrap items-center justify-start'>
+                                        <div className='flex gap-2 flex-wrap items-center justify-center md:justify-start'>
                                             {work.tags.map(tag => (
                                                 <div key={tag} className='py-2 px-4 text-[clamp(10px,1.6vw,12px)] bg-[#0F0F0F] text-white rounded-full border border-[#262626]'>{tag}</div>
                                             ))}
                                         </div>
                                     </div>
                                 </div>
+                                <CommonLink link={work.link} text="See all" className='absolute right-5 top-5' />
                             </WorkerCard>
                         ))}
                     </div>

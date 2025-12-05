@@ -1,3 +1,5 @@
+import { Fragment } from "react/jsx-runtime";
+
 export const Services = [
     {
         name: "Product Engineering",
@@ -34,7 +36,14 @@ export const Services = [
     },
     {
         name: "Human Centered Design",
-        description: 'Stay ahead with our cutting-edge Product Engineering services. From modernizing legacy applications to seamless cloud migration, we enhance your product’s performance, security, and scalability. Our expertise in DevSecOps, pipeline automation, and Site Reliability Engineering ensures high-quality, reliable, and scalable solutions tailored to your needs.',
+        description: (
+            <Fragment>
+                We help you transform ideas into intuitive, impactful, and market-ready digital experiences. Our design practice covers the full spectrum, from defining product strategy and crafting seamless user experiences to building strong, memorable brand identities. By combining deep research, UX clarity, and visual storytelling, we ensure your product not only works great but feels great for your users.
+                <br />
+                <br />
+                Whether you’re refining an existing product or creating something entirely new, we align design with business goals, user needs, long-term scalability and solutions that look exceptional and drive measurable outcomes.
+            </Fragment>
+        ),
         badge: 'DESIGN',
         image: '/service/human_centered.svg',
         content: [
