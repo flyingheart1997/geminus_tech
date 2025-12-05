@@ -165,32 +165,32 @@ export const CareerDetails = {
 
     jobs: [
         {
-            id: "ux-designer-1",
+            id: "job-1",
             title: "UX Designer",
             description: "",
             location: "Pune",
             experience: "3 To 5 Years",
         },
         {
-            id: "ux-designer-2",
-            title: "UX Designer",
+            id: "job-2",
+            title: "Visual Designer",
             description: "",
             location: "Pune",
             experience: "3 To 5 Years",
         },
         {
-            id: "ux-designer-3",
-            title: "UX Designer",
+            id: "job-3",
+            title: "Senior Product Designer",
             description: "",
             location: "Pune",
-            experience: "3 To 5 Years",
+            experience: "5 To 8 Years",
         },
         {
-            id: "ux-designer-4",
-            title: "UX Designer",
+            id: "job-4",
+            title: "UX Intern",
             description: "",
             location: "Pune",
-            experience: "3 To 5 Years",
+            experience: "0 To 1 Years",
         },
     ],
 };

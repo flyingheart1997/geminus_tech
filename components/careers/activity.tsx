@@ -158,7 +158,7 @@ export const Activity = () => {
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: -20 }}
                                     transition={{ duration: 0.25, ease: 'easeOut' }}
-                                    className="bg-[rgba(173,198,198,0.19)] p-5 sm:p-10 flex flex-col gap-5 rounded-md"
+                                    className="bg-[rgba(173,198,198,0.19)] p-5 sm:p-10 flex flex-col gap-5 rounded-md relative"
                                 >
                                     <div className="flex justify-between">
                                         <span className="text-white text-sm">
@@ -201,6 +201,15 @@ export const Activity = () => {
                                                 {activity.newslatters[selectedAcivity].comments[selectedComment].designation}
                                             </span>
                                         </div>
+                                    </div>
+                                    <div className='absolute bottom-0 right-0 h-10 w-10'>
+                                        <Image
+                                            src="/about_logo.svg"
+                                            alt="logo"
+                                            width={20}
+                                            height={20}
+                                            className="object-contain text-white"
+                                        />
                                     </div>
                                 </motion.div>
                             </AnimatePresence>

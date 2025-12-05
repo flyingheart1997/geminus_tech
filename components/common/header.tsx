@@ -54,7 +54,7 @@ export function Header() {
                     delay: 0.2,
 
                 }}
-                className={`w-full shadow top-0 z-50 fixed ${visible ? '' : '-translate-y-full'}  transition-transform duration-300`}>
+                className={`w-full shadow top-0 z-50 fixed bg-[rgba(12,1,1,0.20)] backdrop-blur-md ${visible ? '' : '-translate-y-full'}  transition-transform duration-300`}>
                 <ContainerProvider>
                     <header className="py-[clamp(16px,3vw,20px)] relative flex items-center justify-between">
                         <Link href="/" className="flex items-center">

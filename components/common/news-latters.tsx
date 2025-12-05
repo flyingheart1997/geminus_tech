@@ -32,14 +32,13 @@ export const NewsLatters = () => {
                                             title={item.title}
                                             description={item.description}
                                             image={item.image}
-                                            // icon={item.icon}
                                             createdAt={item.createdAt}
                                         />
                                     </div>
                                 </DialogTrigger>
-                                <DialogContent className="flex flex-col gap-4 h-[90%] w-[90%]">
+                                <DialogContent className="flex flex-col gap-4 h-[90%] w-[100%]">
                                     <DialogTitle>{item.title}</DialogTitle>
-                                    <div className='flex flex-1 border'>
+                                    <div className='flex flex-1'>
                                         <iframe
                                             width="100%"
                                             height="100%"
